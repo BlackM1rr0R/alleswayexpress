@@ -1,0 +1,271 @@
+/* ══════════════════════════════════════════
+   ABOUT PAGE — Allesway Express
+   Premium Dark UI
+   ══════════════════════════════════════════ */
+
+/* ─── ABOUT GRID ─── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 72px;
+  align-items: center;
+}
+
+/* ─── IMAGE / VISUAL BLOCK ─── */
+.about-image {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(135deg,
+      rgba(249,115,22,0.08) 0%,
+      rgba(249,115,22,0.03) 40%,
+      rgba(59,130,246,0.05) 100%
+    );
+  border: 1px solid var(--border);
+}
+
+/* Grid pattern inside */
+.about-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Glow behind icon */
+.about-image::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Icon styling for the truck in the image box */
+.about-image svg {
+  position: relative;
+  z-index: 1;
+  opacity: 0.35;
+  filter: drop-shadow(0 8px 24px rgba(249,115,22,0.2));
+}
+
+
+/* ─── ABOUT CONTENT ─── */
+.about-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 22px;
+  line-height: 1.18;
+  letter-spacing: -0.8px;
+}
+
+.about-content > p {
+  font-size: 15.5px;
+  color: var(--text-dim);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* ─── FEATURE TAGS ─── */
+.about-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 28px 0 32px;
+}
+
+.about-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-dim);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 9px 16px;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+.about-feature:hover {
+  border-color: rgba(249,115,22,0.15);
+  background: var(--bg-card-hover);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+.about-feature-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--green-bg);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+
+/* ─── TIMELINE SECTION ─── */
+.about-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.timeline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.timeline-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(249,115,22,0.12);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+.timeline-card:hover::before {
+  opacity: 1;
+}
+
+.timeline-year {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.timeline-card h4 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.timeline-card p {
+  font-size: 13.5px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+
+/* ─── MAP WRAP ─── */
+.map-wrap {
+  width: 100%;
+  height: 280px;
+  background: var(--bg-card);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.map-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.map-wrap::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(249,115,22,0.04) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.map-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.map-inner p {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+}
+.map-inner span {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 4px;
+}
+
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════ */
+@media (max-width: 1000px) {
+  .about-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .about-image {
+    max-height: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-timeline {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .about-features {
+    gap: 8px;
+  }
+  .about-feature {
+    padding: 7px 12px;
+    font-size: 12.5px;
+  }
+  .map-wrap {
+    height: 220px;
+    border-radius: 16px;
+  }
+}
