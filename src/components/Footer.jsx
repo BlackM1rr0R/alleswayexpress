@@ -1,52 +1,72 @@
 import I from "./Icons";
+import T from "../i18n";
+import logoImg from "../assets/logo_transparent.png";
 import "../styles/Footer.css";
 
-function Footer({ setPage }) {
+function Footer({ setPage, lang = "de" }) {
+  const f = (T[lang] || T.de).footer;
+  const nav = (T[lang] || T.de).ph;
   const goTo = (p) => { setPage(p); window.scrollTo(0, 0); };
+
   return (
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-grid">
+
           <div className="footer-brand">
-            <div className="logo-text" style={{ fontSize: 24 }}>Allesway<span>Express</span></div>
-            <p>Ihr zuverlässiger Partner für Transporte und Logistik in ganz Deutschland. Schnell, sicher und professionell — seit 2018.</p>
+            <div className="footer-logo" onClick={() => goTo("home")}>
+              <img src={logoImg} alt="Allesway Express" className="footer-logo-img" />
+              <div className="footer-logo-text">
+                <span className="footer-logo-main">Allesway</span>
+                <span className="footer-logo-accent">Express</span>
+              </div>
+            </div>
+            <p>{f.tagline}</p>
             <div className="footer-socials">
-              <button className="footer-social"><I.Facebook s={18} /></button>
-              <button className="footer-social"><I.Instagram s={18} /></button>
-              <button className="footer-social"><I.Linkedin s={18} /></button>
+              <button
+                className="footer-social"
+                onClick={() => window.open("https://www.instagram.com/allesway_express", "_blank")}
+              >
+                <I.Instagram s={18} />
+              </button>
             </div>
           </div>
+
           <div className="footer-col">
-            <h4>Seiten</h4>
+            <h4>{f.nav_title}</h4>
             <ul>
-              <li><button onClick={() => goTo("home")}>Startseite</button></li>
-              <li><button onClick={() => goTo("services")}>Leistungen</button></li>
-              <li><button onClick={() => goTo("cargo")}>Sendungen</button></li>
-              <li><button onClick={() => goTo("about")}>Über uns</button></li>
+              <li><button onClick={() => goTo("home")}>{(T[lang] || T.de).home_label || "Startseite"}</button></li>
+              <li><button onClick={() => goTo("services")}>{nav.services.title}</button></li>
+              <li><button onClick={() => goTo("cargo")}>{nav.cargo.title}</button></li>
+              <li><button onClick={() => goTo("about")}>{nav.about.title}</button></li>
+              <li><button onClick={() => goTo("contact")}>{nav.contact.title}</button></li>
             </ul>
           </div>
+
           <div className="footer-col">
-            <h4>Leistungen</h4>
+            <h4>{f.svc_title}</h4>
             <ul>
-              <li><button onClick={() => goTo("services")}>Express-Zustellung</button></li>
-              <li><button onClick={() => goTo("services")}>LKW-Transport</button></li>
-              <li><button onClick={() => goTo("services")}>Sprinter-Service</button></li>
-              <li><button onClick={() => goTo("services")}>Firmentransporte</button></li>
+              {f.svc_links.map((lnk, i) => (
+                <li key={i}><button onClick={() => goTo("services")}>{lnk}</button></li>
+              ))}
             </ul>
           </div>
+
           <div className="footer-col">
-            <h4>Kontakt</h4>
+            <h4>{f.cnt_title}</h4>
             <ul>
-              <li><button>0174 946 9999</button></li>
-              <li><button>allesway@outlook.com</button></li>
-              <li><button>Schulplatz 2, 76744 Wörth</button></li>
-              <li><button onClick={() => goTo("contact")}>Nachricht senden</button></li>
+              <li><a href="tel:+491741809999">+49 174 180 99 99</a></li>
+              <li><a href="mailto:info@allesway-express.de">info@allesway-express.de</a></li>
+              <li><button>{f.address}</button></li>
+              <li><button onClick={() => goTo("contact")}>{f.send_msg}</button></li>
             </ul>
           </div>
+
         </div>
+
         <div className="footer-bottom">
-          <p>&copy; 2026 Allesway Express. Alle Rechte vorbehalten.</p>
-          <p>Mit Leidenschaft aus Wörth am Rhein</p>
+          <p>{f.copyright}</p>
+          <p>{f.tagline2}</p>
         </div>
       </div>
     </footer>

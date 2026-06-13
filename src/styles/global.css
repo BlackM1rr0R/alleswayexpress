@@ -21,11 +21,11 @@
   --text-dim:       #8a90a4;
   --text-muted:     #5c6178;
 
-  /* ── Accent (Orange) ── */
-  --accent:         #f97316;
-  --accent-light:   #fb923c;
-  --accent-dark:    #ea580c;
-  --accent-glow:    rgba(249,115,22,0.12);
+  /* ── Accent (Gold) ── */
+  --accent:         #c9a227;
+  --accent-light:   #d4b347;
+  --accent-dark:    #a07818;
+  --accent-glow:    rgba(201,162,39,0.12);
 
   /* ── Semantic Colors ── */
   --green:          #22c55e;
@@ -62,6 +62,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -73,6 +75,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  max-width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 #root {
@@ -110,6 +118,181 @@ button {
 
 /* ── Selection ── */
 ::selection {
-  background: rgba(249,115,22,0.25);
+  background: rgba(201,162,39,0.25);
   color: var(--text);
 }
+
+/* ══════════════════════════════════════════
+   GLOBAL MOBILE WIDTH ALIGNMENT
+   All content containers match header padding
+   ══════════════════════════════════════════ */
+/* header ≤960px → 18px; hamısı eyni olsun */
+@media (max-width: 960px) {
+  .section-inner,
+  .cta-inner,
+  .hero-inner,
+  .footer-inner,
+  .stats-inner,
+  .services-tabs-inner,
+  .track-hero-content {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+}
+
+/* header ≤480px → 14px */
+@media (max-width: 480px) {
+  .section-inner,
+  .cta-inner,
+  .hero-inner,
+  .footer-inner,
+  .stats-inner,
+  .services-tabs-inner,
+  .track-hero-content {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+
+/* ══════════════════════════════════════════
+   GLOBAL MOBILE LAYOUT IMPROVEMENTS
+   ══════════════════════════════════════════ */
+
+/* ── Section vertical spacing ── */
+@media (max-width: 640px) {
+  .section         { padding: 56px 0 !important; }
+  .section-header  { margin-bottom: 28px !important; }
+  .section-title   { font-size: clamp(22px, 6vw, 30px) !important; letter-spacing: -0.5px !important; }
+  .section-subtitle { font-size: 14px !important; }
+  .section-eyebrow  { font-size: 10.5px !important; }
+  .cta-section      { padding: 64px 0 !important; }
+}
+
+/* ── 2-column grids on mobile instead of stacking ── */
+@media (max-width: 540px) {
+
+  /* Industries */
+  .industries-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .industry-card  { padding: 18px 14px !important; }
+  .industry-icon  { font-size: 24px !important; margin-bottom: 10px !important; }
+  .industry-card h3 { font-size: 13px !important; }
+  .industry-card p  { font-size: 12px !important; }
+
+  /* Home FAQ */
+  .home-faq-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .home-faq-card { padding: 18px 16px !important; }
+  .home-faq-a    { padding-left: 0 !important; }
+
+  /* Live Stats — 2×2 */
+  .live-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .live-stat-card { padding: 18px 16px !important; }
+  .live-stat-num  { font-size: 32px !important; }
+
+  /* Cargo info */
+  .cargo-info-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .cargo-info-card { padding: 18px 14px !important; }
+  .cargo-info-icon { font-size: 24px !important; }
+
+  /* Awards — 2×2 */
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .award-card { padding: 20px 14px !important; }
+
+  /* Guarantees — 2×2 */
+  .guarantees-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .guarantee-card { padding: 20px 14px !important; }
+  .guarantee-icon { font-size: 24px !important; }
+
+  /* Mission & Vision pillars — 2×2 already, just compact */
+  .mv-pillar  { padding: 20px 12px !important; }
+  .mv-card    { padding: 24px 20px !important; }
+  .mv-text    { font-size: 16px !important; }
+
+  /* Fleet specs — 1 col compact */
+  .fleet-spec-card  { padding: 22px 18px !important; }
+  .fsc-icon         { font-size: 28px !important; }
+
+  /* Certs — 2×2 */
+  .certs-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .cert-card { padding: 20px 14px !important; }
+
+  /* Team — compact */
+  .team-card { padding: 24px 18px !important; }
+
+  /* Timeline — compact */
+  .about-timeline  { gap: 12px !important; }
+  .timeline-card   { padding: 18px 16px !important; }
+
+  /* Quick cards — 1 col compact */
+  .quick-card      { padding: 22px 18px !important; }
+
+  /* Features grid */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .feature-card { padding: 20px 14px !important; }
+
+  /* Services quick grid */
+  .svc-quick-grid { grid-template-columns: 1fr !important; }
+
+  /* Service process */
+  .svc-process-step { padding: 20px 16px !important; }
+
+  /* Partners */
+  .partners-track { gap: 16px !important; }
+  .partner-item   { padding: 10px 16px !important; font-size: 12px !important; }
+
+  /* Testimonials compact */
+  .testimonial-card { padding: 22px 18px !important; }
+
+  /* Worldmap stats */
+  .worldmap-stats { grid-template-columns: repeat(2, 1fr) !important; gap: 16px !important; }
+
+  /* Process grid */
+  .process-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .process-card { padding: 24px 18px !important; }
+
+  /* Page header compact */
+  .page-header { padding-top: 120px !important; padding-bottom: 52px !important; min-height: 240px !important; }
+  .page-header h1 { font-size: clamp(26px, 7vw, 36px) !important; }
+
+  /* Stats bar */
+  .stats-inner { gap: 0 !important; }
+  .stat-item   { padding: 18px 10px !important; }
+  .stat-number { font-size: 26px !important; }
+  .stat-label  { font-size: 11px !important; }
+
+  /* Footer grid */
+  .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .footer-brand { grid-column: 1 !important; }
+  .footer-bottom { flex-direction: column !important; gap: 10px !important; text-align: center !important; }
+
+  /* Cargo grid */
+  .cargo-grid { grid-template-columns: 1fr !important; }
+  .cargo-card-body { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Track meta */
+  .track-result-meta { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Contact map */
+  .contact-map { height: 240px !important; }
+}
+

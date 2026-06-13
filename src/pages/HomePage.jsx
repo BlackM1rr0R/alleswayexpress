@@ -1,185 +1,228 @@
+import { useState } from "react";
 import I from "../components/Icons";
+import T from "../i18n";
 import StatsBar from "../components/StatsBar";
+import bgHero from "../assets/kamyon.jpeg";
+import kamyon5 from "../assets/kamyon5.jpeg";
+import kamyon7 from "../assets/kamyon7.jpeg";
+import kamyon6 from "../assets/kamyon6.jpeg";
+import kamyon3 from "../assets/kamyon3.jpeg";
+import kamyon2 from "../assets/kamyon2.jpeg";
+import kamyon4 from "../assets/kamyon4.jpeg";
+import kamyon9 from "../assets/kamyon9.jpeg";
+import kamyon1 from "../assets/kamyon1.jpeg";
 import "../styles/HomePage.css";
 
-function HomePage({ setPage }) {
+const VEHICLES = [
+  { name: "Sprinter", base: 49,  rate: 0.75, icon: "🚐" },
+  { name: "LKW 7,5t", base: 89,  rate: 1.35, icon: "🚛" },
+  { name: "LKW 40t",  base: 149, rate: 2.1,  icon: "🚚" },
+];
+
+const SVC_ICONS = [
+  <I.Zap s={26} />, <I.Truck s={26} />, <I.Package s={26} />,
+  <I.Shield s={26} />, <I.Globe s={26} />, <I.Clock s={26} />,
+];
+const WHY_ICONS = [
+  <I.Truck s={28} />, <I.Shield s={28} />, <I.Clock s={28} />, <I.Users s={28} />,
+];
+const PROCESS_ICONS = [<I.Phone s={30} />, <I.Truck s={30} />, <I.Check s={30} />];
+const PROCESS_COLORS = ["gold", "blue", "green"];
+
+function HomePage({ setPage, lang = "de" }) {
+  const t = (T[lang] || T.de).home;
+  const [calcVehicle, setCalcVehicle] = useState(0);
+  const [calcKm, setCalcKm] = useState(150);
+
+  const v = VEHICLES[calcVehicle];
+  const price = Math.round(v.base + calcKm * v.rate);
+
   return (
     <>
-      {/* ─── HERO ─── */}
+      {/* ══════════════ HERO ══════════════ */}
       <section className="hero">
         <div className="hero-bg">
-          <div className="hero-bg-grad" />
-          <div className="hero-bg-grad2" />
+          <img src={bgHero} alt="" className="hero-bg-img" />
+          <div className="hero-bg-overlay" />
           <div className="hero-grid" />
         </div>
+
         <div className="hero-inner">
           <div className="hero-content">
             <div className="hero-badge">
               <div className="hero-badge-dot" />
-              Ihr zuverlässiger Transportpartner in Deutschland
+              {t.badge}
             </div>
             <h1 className="hero-title">
-              Ihre Fracht in{" "}
-              <span className="hl">sicheren</span>{" "}
-              Händen
+              {t.title1}<span className="hl">{t.title_hl}</span>{t.title2}
             </h1>
-            <p className="hero-desc">
-              Mit unserer modernen Flotte aus LKW und Sprinter-Fahrzeugen
-              bieten wir schnelle, sichere und preiswerte Transportlösungen
-              — deutschlandweit innerhalb von 24 Stunden.
-            </p>
+            <p className="hero-desc">{t.desc}</p>
             <div className="hero-buttons">
-              <button
-                className="btn-primary"
-                onClick={() => {
-                  setPage("services");
-                  window.scrollTo(0, 0);
-                }}
-              >
-                Unsere Leistungen <I.ArrowRight s={18} />
+              <button className="btn-primary" onClick={() => { setPage("contact"); window.scrollTo(0, 0); }}>
+                {t.btn_quote} <I.ArrowRight s={18} />
               </button>
-              <button
-                className="btn-secondary"
-                onClick={() => {
-                  setPage("cargo");
-                  window.scrollTo(0, 0);
-                }}
-              >
-                <I.Search s={18} /> Sendung verfolgen
+              <button className="btn-secondary" onClick={() => { setPage("cargo"); window.scrollTo(0, 0); }}>
+                <I.Search s={18} /> {t.btn_track}
               </button>
             </div>
           </div>
 
           <div className="hero-visual">
             <div className="hero-card">
-              <div className="tracking-label">Sendungsverfolgung</div>
-              <div className="tracking-input-wrap">
-                <input
-                  className="tracking-input"
-                  placeholder="Sendungsnummer eingeben..."
-                />
-                <button className="tracking-btn">
-                  <I.Search s={20} />
-                </button>
+              <div className="calc-header">
+                <div className="calc-header-icon"><I.Package s={18} /></div>
+                <span>{t.calc_title}</span>
+                <div className="calc-header-badge">{t.calc_free}</div>
               </div>
-              <div className="tracking-status">
-                {[
-                  {
-                    status: "completed",
-                    title: "Auftrag bestätigt",
-                    time: "15.02.2026 — 09:30",
-                  },
-                  {
-                    status: "completed",
-                    title: "Im Lager verpackt",
-                    time: "15.02.2026 — 11:45",
-                  },
-                  {
-                    status: "active",
-                    title: "Unterwegs — LKW #07",
-                    time: "16.02.2026 — 08:15",
-                  },
-                  {
-                    status: "pending",
-                    title: "Zustellung erwartet",
-                    time: "Heute — ca. 14:00",
-                  },
-                ].map((step, i) => (
-                  <div className="tracking-step" key={i}>
-                    <div className={`tracking-dot ${step.status}`} />
-                    <div className="tracking-step-info">
-                      <h4>{step.title}</h4>
-                      <p>{step.time}</p>
-                    </div>
-                  </div>
+
+              <div className="calc-vehicle-select">
+                {VEHICLES.map((veh, i) => (
+                  <button
+                    key={i}
+                    className={`calc-vehicle-btn${calcVehicle === i ? " active" : ""}`}
+                    onClick={() => setCalcVehicle(i)}
+                  >
+                    <span className="calc-veh-icon">{veh.icon}</span>
+                    {veh.name}
+                  </button>
                 ))}
               </div>
+
+              <div className="calc-km-wrap">
+                <div className="calc-km-header">
+                  <label>{t.calc_distance}</label>
+                  <span className="calc-km-val">{calcKm} km</span>
+                </div>
+                <input
+                  type="range" min={10} max={1000} step={10}
+                  value={calcKm}
+                  onChange={e => setCalcKm(Number(e.target.value))}
+                  className="calc-slider"
+                />
+                <div className="calc-km-labels"><span>10 km</span><span>1.000 km</span></div>
+              </div>
+
+              <div className="calc-result">
+                <div className="calc-result-left">
+                  <div className="calc-result-label">{t.calc_est}</div>
+                  <div className="calc-result-price">ab {price.toLocaleString("de-DE")} €</div>
+                  <div className="calc-result-note">{t.calc_note}</div>
+                </div>
+                <div className="calc-result-badge">
+                  <I.Shield s={20} />
+                  <span>{t.calc_insured}</span>
+                </div>
+              </div>
+
+              <button className="calc-cta-btn" onClick={() => { setPage("contact"); window.scrollTo(0, 0); }}>
+                {t.calc_cta} <I.ArrowRight s={16} />
+              </button>
             </div>
 
             <div className="hero-float float-1">
-              <div className="float-icon green">
-                <I.Check s={20} />
-              </div>
+              <div className="float-icon green"><I.Check s={18} /></div>
               <div className="float-text">
                 <h4>4.280 Sendungen</h4>
-                <p>Diesen Monat zugestellt</p>
+                <p>{lang === "en" ? "Delivered this month" : "Diesen Monat zugestellt"}</p>
               </div>
             </div>
             <div className="hero-float float-2">
-              <div className="float-icon blue">
-                <I.Zap s={20} />
-              </div>
+              <div className="float-icon blue"><I.Zap s={18} /></div>
               <div className="float-text">
                 <h4>3,2 Stunden</h4>
-                <p>Ø Lieferzeit regional</p>
+                <p>{lang === "en" ? "Avg. regional delivery" : "Ø Lieferzeit regional"}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── STATS BAR ─── */}
-      <StatsBar />
+      {/* ══════════════ STATS ══════════════ */}
+      <StatsBar lang={lang} />
 
-      {/* ─── SERVICES ─── */}
-      <section className="section">
+      {/* ══════════════ HOW IT WORKS ══════════════ */}
+      <section className="section process-section">
         <div className="section-inner">
           <div className="section-header">
-            <div className="section-eyebrow">Unsere Leistungen</div>
-            <h2 className="section-title">
-              Für jeden Transportbedarf die richtige Lösung
-            </h2>
-            <p className="section-subtitle">
-              Von der Expresslieferung bis zum Schwertransport — wir bewegen
-              Ihre Fracht schnell, sicher und zuverlässig durch ganz
-              Deutschland.
-            </p>
+            <div className="section-eyebrow">{t.process_eyebrow}</div>
+            <h2 className="section-title">{t.process_title}</h2>
+            <p className="section-subtitle">{t.process_subtitle}</p>
+          </div>
+          <div className="process-grid">
+            {t.process_steps.map((p, i) => (
+              <div className="process-card" key={i}>
+                {i < 2 && <div className="process-connector" />}
+                <div className={`process-num process-num--${PROCESS_COLORS[i]}`}>
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <div className={`process-icon-wrap process-icon-wrap--${PROCESS_COLORS[i]}`}>
+                  {PROCESS_ICONS[i]}
+                </div>
+                <h3>{p.title}</h3>
+                <p>{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ FLEET GALLERY ══════════════ */}
+      <section className="section fleet-section">
+        <div className="section-inner">
+          <div className="section-header">
+            <div className="section-eyebrow">{t.fleet_eyebrow}</div>
+            <h2 className="section-title">{t.fleet_title}</h2>
+            <p className="section-subtitle">{t.fleet_subtitle}</p>
+          </div>
+          <div className="fleet-grid">
+            <div className="fleet-card fleet-large">
+              <img src={kamyon7} alt="Mercedes Atego LKW" />
+              <div className="fleet-card-label"><span>{t.fleet_labels[0]}</span></div>
+            </div>
+            <div className="fleet-side">
+              <div className="fleet-card">
+                <img src={kamyon6} alt="Mercedes Sprinter" />
+                <div className="fleet-card-label"><span>{t.fleet_labels[1]}</span></div>
+              </div>
+              <div className="fleet-card">
+                <img src={kamyon3} alt="Mercedes Actros" />
+                <div className="fleet-card-label"><span>{t.fleet_labels[2]}</span></div>
+              </div>
+            </div>
+          </div>
+          <div className="fleet-row2">
+            <div className="fleet-card">
+              <img src={kamyon2} alt="Sprinter Fuhrpark" />
+              <div className="fleet-card-label"><span>{t.fleet_labels[3]}</span></div>
+            </div>
+            <div className="fleet-card">
+              <img src={kamyon4} alt="Atego Fuhrpark" />
+              <div className="fleet-card-label"><span>{t.fleet_labels[4]}</span></div>
+            </div>
+            <div className="fleet-card">
+              <img src={kamyon1} alt="Fernverkehr" />
+              <div className="fleet-card-label"><span>{t.fleet_labels[5]}</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ SERVICES ══════════════ */}
+      <section className="section section-dark">
+        <div className="section-inner">
+          <div className="section-header">
+            <div className="section-eyebrow">{t.svc_eyebrow}</div>
+            <h2 className="section-title">{t.svc_title}</h2>
+            <p className="section-subtitle">{t.svc_subtitle}</p>
           </div>
           <div className="services-grid">
-            {[
-              {
-                icon: <I.Zap s={26} />,
-                title: "Express-Zustellung",
-                desc: "Taggleiche Lieferung im Nahbereich. Für dringende Aufträge garantieren wir eine Zustellung innerhalb von 3 Stunden.",
-              },
-              {
-                icon: <I.Truck s={26} />,
-                title: "LKW-Transport",
-                desc: "Mit unseren 40-Tonnern bewegen wir auch große Ladungen. Ideal für Industrie, Bau und Großhandel.",
-              },
-              {
-                icon: <I.Package s={26} />,
-                title: "Sprinter-Service",
-                desc: "Flexible Zustellung mit unseren Sprinter-Fahrzeugen — bis zu 1,5 Tonnen, schnell und direkt.",
-              },
-              {
-                icon: <I.Shield s={26} />,
-                title: "Versicherter Transport",
-                desc: "Jede Sendung ist vollversichert. Im Schadensfall erhalten Sie eine komplette Erstattung.",
-              },
-              {
-                icon: <I.Globe s={26} />,
-                title: "Deutschlandweite Lieferung",
-                desc: "Regelmäßige Fahrten in alle 16 Bundesländer — von der Nordsee bis zu den Alpen.",
-              },
-              {
-                icon: <I.Clock s={26} />,
-                title: "24/7 Kundenservice",
-                desc: "Unser Service-Team ist rund um die Uhr für Sie erreichbar — per Telefon, E-Mail und Live-Chat.",
-              },
-            ].map((s, i) => (
+            {t.services.map((s, i) => (
               <div className="service-card" key={i}>
-                <div className="service-icon">{s.icon}</div>
+                <div className="service-icon">{SVC_ICONS[i]}</div>
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
-                <button
-                  className="service-link"
-                  onClick={() => {
-                    setPage("services");
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  Mehr erfahren <I.ArrowRight s={14} />
+                <button className="service-link" onClick={() => { setPage("services"); window.scrollTo(0, 0); }}>
+                  {t.svc_more} <I.ArrowRight s={14} />
                 </button>
               </div>
             ))}
@@ -187,44 +230,18 @@ function HomePage({ setPage }) {
         </div>
       </section>
 
-      {/* ─── WHY US ─── */}
-      <section className="section section-dark">
+      {/* ══════════════ WHY US ══════════════ */}
+      <section className="section">
         <div className="section-inner">
           <div className="section-header">
-            <div className="section-eyebrow">Warum wir?</div>
-            <h2 className="section-title">
-              Allesway Express — der Unterschied
-            </h2>
-            <p className="section-subtitle">
-              Langjährige Erfahrung, professionelles Team und modernste
-              Technik für Ihre Logistik.
-            </p>
+            <div className="section-eyebrow">{t.why_eyebrow}</div>
+            <h2 className="section-title">{t.why_title}</h2>
+            <p className="section-subtitle">{t.why_subtitle}</p>
           </div>
           <div className="features-grid">
-            {[
-              {
-                icon: <I.Truck s={28} />,
-                title: "85+ Fahrzeuge",
-                desc: "Unser Fuhrpark umfasst LKW, Sprinter und Spezialfahrzeuge für jeden Einsatz.",
-              },
-              {
-                icon: <I.Shield s={28} />,
-                title: "Vollversicherung",
-                desc: "Alle Transporte sind vollständig versichert — für Ihre absolute Sicherheit.",
-              },
-              {
-                icon: <I.Clock s={28} />,
-                title: "Pünktlichkeit",
-                desc: "99,7% pünktliche Zustellrate — Zuverlässigkeit, auf die Sie zählen können.",
-              },
-              {
-                icon: <I.Users s={28} />,
-                title: "Erfahrenes Team",
-                desc: "Geschulte Fahrer und Logistikexperten mit über 15 Jahren Branchenerfahrung.",
-              },
-            ].map((f, i) => (
+            {t.why_cards.map((f, i) => (
               <div className="feature-card" key={i}>
-                <div className="feature-icon-wrap">{f.icon}</div>
+                <div className="feature-icon-wrap">{WHY_ICONS[i]}</div>
                 <h3>{f.title}</h3>
                 <p>{f.desc}</p>
               </div>
@@ -233,50 +250,57 @@ function HomePage({ setPage }) {
         </div>
       </section>
 
-      {/* ─── TESTIMONIALS ─── */}
-      <section className="section">
+      {/* ══════════════ COVERAGE ══════════════ */}
+      <section className="worldmap-section">
+        <img src={kamyon9} alt="" className="worldmap-bg" />
+        <div className="worldmap-overlay" />
+        <div className="worldmap-content">
+          <div className="section-eyebrow" style={{ color: "var(--accent)" }}>{t.map_eyebrow}</div>
+          <h2 className="worldmap-title">{t.map_title}</h2>
+          <p className="worldmap-desc">{t.map_desc}</p>
+          <div className="worldmap-stats">
+            {t.map_stats.map((s, i) => (
+              <div className="worldmap-stat" key={i}>
+                <span className="worldmap-stat-num">{s.num}</span>
+                <span className="worldmap-stat-label">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ PARTNERS ══════════════ */}
+      <section className="section partners-section">
+        <div className="section-inner">
+          <p className="partners-label">{t.partners_label}</p>
+          <div className="partners-track">
+            {["Bauhaus AG", "RheinCargo GmbH", "Metro Logistik", "BASF SE", "Daimler Truck", "Lidl Stiftung", "DB Schenker", "Rhenus Group"].map((p, i) => (
+              <div className="partner-item" key={i}>{p}</div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ TESTIMONIALS ══════════════ */}
+      <section className="section section-dark">
         <div className="section-inner">
           <div className="section-header">
-            <div className="section-eyebrow">Kundenstimmen</div>
-            <h2 className="section-title">Was unsere Kunden sagen</h2>
-            <p className="section-subtitle">
-              Tausende zufriedene Kunden vertrauen täglich auf Allesway
-              Express.
-            </p>
+            <div className="section-eyebrow">{t.testi_eyebrow}</div>
+            <h2 className="section-title">{t.testi_title}</h2>
+            <p className="section-subtitle">{t.testi_subtitle}</p>
           </div>
           <div className="testimonials-grid">
-            {[
-              {
-                text: "Allesway Express liefert immer pünktlich und zuverlässig. Die Preise sind fair und der Service erstklassig. Absolut empfehlenswert für Geschäftskunden!",
-                name: "Thomas Berger",
-                role: "Geschäftsführer, Berger Möbelhaus",
-                initials: "TB",
-              },
-              {
-                text: "Der Express-Service ist hervorragend. Meine dringende Lieferung war in unter 3 Stunden da. So einen zuverlässigen Partner findet man selten.",
-                name: "Sabine Keller",
-                role: "Inhaberin, Keller Online-Shop",
-                initials: "SK",
-              },
-              {
-                text: "Seit 5 Jahren arbeiten wir mit Allesway zusammen. Professionelles Team, versicherte Transporte und immer erreichbar. Die beste Wahl in der Pfalz!",
-                name: "Markus Hoffmann",
-                role: "Betriebsleiter, Hoffmann AG",
-                initials: "MH",
-              },
-            ].map((t, i) => (
+            {t.testimonials.map((tm, i) => (
               <div className="testimonial-card" key={i}>
                 <div className="testimonial-stars">
-                  {[...Array(5)].map((_, si) => (
-                    <I.Star key={si} s={16} />
-                  ))}
+                  {[...Array(5)].map((_, si) => <I.Star key={si} s={16} c="var(--accent)" />)}
                 </div>
-                <p className="testimonial-text">„{t.text}"</p>
+                <p className="testimonial-text">„{tm.text}"</p>
                 <div className="testimonial-author">
-                  <div className="testimonial-avatar">{t.initials}</div>
+                  <div className="testimonial-avatar">{tm.initials}</div>
                   <div>
-                    <div className="testimonial-name">{t.name}</div>
-                    <div className="testimonial-role">{t.role}</div>
+                    <div className="testimonial-name">{tm.name}</div>
+                    <div className="testimonial-role">{tm.role}</div>
                   </div>
                 </div>
               </div>
@@ -285,32 +309,117 @@ function HomePage({ setPage }) {
         </div>
       </section>
 
-      {/* ─── CTA ─── */}
+      {/* ══════════════ INDUSTRIES ══════════════ */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-header">
+            <div className="section-eyebrow">{t.industries_eyebrow}</div>
+            <h2 className="section-title">{t.industries_title}</h2>
+            <p className="section-subtitle">{t.industries_subtitle}</p>
+          </div>
+          <div className="industries-grid">
+            {t.industries.map((ind, i) => (
+              <div className="industry-card" key={i}>
+                <div className="industry-icon">{ind.icon}</div>
+                <h3>{ind.title}</h3>
+                <p>{ind.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ FAQ ══════════════ */}
+      <section className="section section-dark home-faq-section">
+        <div className="section-inner">
+          <div className="section-header">
+            <div className="section-eyebrow">{t.home_faq_eyebrow}</div>
+            <h2 className="section-title">{t.home_faq_title}</h2>
+            <p className="section-subtitle">{t.home_faq_subtitle}</p>
+          </div>
+          <div className="home-faq-grid">
+            {t.home_faqs.map((f, i) => (
+              <div className="home-faq-card" key={i}>
+                <div className="home-faq-q">
+                  <div className="home-faq-num">{String(i + 1).padStart(2, "0")}</div>
+                  <h4>{f.q}</h4>
+                </div>
+                <p className="home-faq-a">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ PRICING ══════════════ */}
+      <section className="section pricing-section">
+        <div className="section-inner">
+          <div className="section-header">
+            <div className="section-eyebrow">{t.pricing_eyebrow}</div>
+            <h2 className="section-title">{t.pricing_title}</h2>
+            <p className="section-subtitle">{t.pricing_subtitle}</p>
+          </div>
+          <div className="pricing-grid">
+            {t.pricing_cards.map((card, i) => (
+              <div className={`pricing-card${card.badge ? " pricing-card--popular" : ""}`} key={i}>
+                {card.badge && <div className="pricing-badge">{card.badge}</div>}
+                <div className="pricing-icon">{card.icon}</div>
+                <h3 className="pricing-name">{card.name}</h3>
+                <div className="pricing-price">
+                  <span className="pricing-from">{t.pricing_from}</span>
+                  <span className="pricing-num">{card.price}</span>
+                  <span className="pricing-unit">{card.unit}</span>
+                </div>
+                <p className="pricing-note">{card.note}</p>
+                <ul className="pricing-features">
+                  {card.features.map((f, fi) => (
+                    <li key={fi}><I.Check s={14} c="var(--accent)" /> {f}</li>
+                  ))}
+                </ul>
+                <button className="pricing-cta" onClick={() => { setPage("contact"); window.scrollTo(0, 0); }}>
+                  {t.pricing_cta}
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ NETWORK ══════════════ */}
+      <section className="section section-dark network-section">
+        <div className="section-inner">
+          <div className="section-header">
+            <div className="section-eyebrow">{t.network_eyebrow}</div>
+            <h2 className="section-title">{t.network_title}</h2>
+            <p className="section-subtitle">{t.network_subtitle}</p>
+          </div>
+          <div className="network-stats-row">
+            {t.network_stats.map((s, i) => (
+              <div className="network-stat" key={i}>
+                <div className="network-stat-num">{s.num}</div>
+                <div className="network-stat-label">{s.label}</div>
+              </div>
+            ))}
+          </div>
+          <div className="network-cities">
+            {t.network_cities.map((city, i) => (
+              <span className="network-city" key={i}>{city}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ CTA ══════════════ */}
       <section className="cta-section">
         <div className="cta-inner">
-          <h2>Bereit zum Versenden?</h2>
-          <p>
-            Kontaktieren Sie uns jetzt und lassen Sie Ihre Fracht schnell und
-            sicher liefern. 15% Rabatt auf Ihren ersten Auftrag!
-          </p>
+          <h2>{t.cta_title}</h2>
+          <p>{t.cta_desc}</p>
           <div className="hero-buttons" style={{ justifyContent: "center" }}>
-            <button
-              className="btn-primary"
-              onClick={() => {
-                setPage("contact");
-                window.scrollTo(0, 0);
-              }}
-            >
-              <I.Phone s={18} /> Kontakt aufnehmen
+            <button className="btn-primary" onClick={() => { setPage("contact"); window.scrollTo(0, 0); }}>
+              <I.Phone s={18} /> {t.cta_btn1}
             </button>
-            <button
-              className="btn-secondary"
-              onClick={() => {
-                setPage("cargo");
-                window.scrollTo(0, 0);
-              }}
-            >
-              <I.Package s={18} /> Sendungen ansehen
+            <button className="btn-secondary" onClick={() => { setPage("cargo"); window.scrollTo(0, 0); }}>
+              <I.Package s={18} /> {t.cta_btn2}
             </button>
           </div>
         </div>
