@@ -8,10 +8,6 @@ import kamyon6 from "../assets/kamyon6.jpeg";
 import kamyon4 from "../assets/kamyon4.jpeg";
 import kamyon9 from "../assets/kamyon9.jpeg";
 import kamyon1 from "../assets/kamyon1.jpeg";
-import full2 from "../assets/full2.jpeg";
-import full3 from "../assets/full3.jpeg";
-import full4 from "../assets/full4.jpeg";
-import full7 from "../assets/full7.jpeg";
 import "../styles/Services.css";
 
 const STATIC = [
@@ -168,8 +164,6 @@ function ServicesPage({ setPage, lang = "de" }) {
         </div>
       </section>
 
-      <div className="full-banner"><img src={full7} alt="" className="full-banner-img" /><div className="full-banner-fade" /></div>
-
       {/* ══ HOW IT WORKS ══ */}
       <section className="section section-dark svc-process-section">
         <div className="section-inner">
@@ -221,8 +215,6 @@ function ServicesPage({ setPage, lang = "de" }) {
         </div>
       </section>
 
-      <div className="full-banner"><img src={full2} alt="" className="full-banner-img" /><div className="full-banner-fade" /></div>
-
       {/* ══ COVERAGE ZONES ══ */}
       <section className="section section-dark svc-zones-section">
         <div className="section-inner">
@@ -242,8 +234,6 @@ function ServicesPage({ setPage, lang = "de" }) {
           </div>
         </div>
       </section>
-
-      <div className="full-banner"><img src={full3} alt="" className="full-banner-img" /><div className="full-banner-fade" /></div>
 
       {/* ══ SERVICE TESTIMONIALS ══ */}
       <section className="section svc-testi-section">
@@ -271,8 +261,6 @@ function ServicesPage({ setPage, lang = "de" }) {
           </div>
         </div>
       </section>
-
-      <div className="full-banner"><img src={full4} alt="" className="full-banner-img" /><div className="full-banner-fade" /></div>
 
       {/* ══ CTA ══ */}
       <section className="cta-section">

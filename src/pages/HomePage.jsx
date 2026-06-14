@@ -14,8 +14,6 @@ import kamyon1 from "../assets/kamyon1.jpeg";
 import foto01 from "../assets/01foto.jpg";
 import foto02 from "../assets/02foto.jpg";
 import foto03 from "../assets/03foto.jpg";
-import full5 from "../assets/full5.jpeg";
-import full6 from "../assets/full6.jpeg";
 import "../styles/HomePage.css";
 
 const PROCESS_PHOTOS = [foto01, foto02, foto03];
@@ -175,12 +173,6 @@ function HomePage({ setPage, lang = "de" }) {
         </div>
       </section>
 
-      {/* ══════════════ FULL BANNER 1 ══════════════ */}
-      <div className="full-banner">
-        <img src={full6} alt="Allesway Express" className="full-banner-img" />
-        <div className="full-banner-fade" />
-      </div>
-
       {/* ══════════════ SERVICES ══════════════ */}
       <section className="section section-dark" style={{ backgroundImage: `url(${kamyon7})`, backgroundSize: "100% auto", backgroundPosition: "center", backgroundAttachment: "fixed", position: "relative" }}>
         <div className="section-bg-overlay" />
@@ -244,12 +236,6 @@ function HomePage({ setPage, lang = "de" }) {
           </div>
         </div>
       </section>
-
-      {/* ══════════════ FULL BANNER 2 ══════════════ */}
-      <div className="full-banner">
-        <img src={full5} alt="Allesway Express Sprinter" className="full-banner-img" />
-        <div className="full-banner-fade" />
-      </div>
 
       {/* ══════════════ PARTNERS ══════════════ */}
       <section className="section partners-section">
