@@ -7,8 +7,6 @@ import sekil1 from "../assets/sekil1.jpeg";
 import sekil2 from "../assets/sekil2.jpeg";
 import sekil3 from "../assets/sekil3.jpeg";
 import sekil4 from "../assets/sekil4.jpeg";
-
-const CERT_IMAGES = [sekil1, sekil2, sekil3, sekil4];
 import mercedesImg from "../assets/mercedes.jpeg";
 import dhlImg from "../assets/dhl.jpeg";
 import ihkImg from "../assets/ihk.jpeg";
@@ -16,6 +14,8 @@ import boschImg from "../assets/bosch.png";
 import dekraImg from "../assets/dekra.png";
 import hereMapsImg from "../assets/kamyon9.jpeg";
 import "../styles/About.css";
+
+const CERT_IMAGES = [sekil1, sekil2, sekil3, sekil4];
 
 const BIZ_IMAGES = {
   "Mercedes-Benz": mercedesImg,
