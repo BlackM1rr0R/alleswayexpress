@@ -3,6 +3,7 @@ import T from "../i18n";
 import PageHeader from "../components/PageHeader";
 import StatsBar from "../components/StatsBar";
 import aboutImg from "../assets/kamyon5.jpeg";
+import full1 from "../assets/full1.jpeg";
 import sekil1 from "../assets/sekil1.jpeg";
 import sekil2 from "../assets/sekil2.jpeg";
 import sekil3 from "../assets/sekil3.jpeg";
@@ -87,6 +88,8 @@ function AboutPage({ setPage, lang = "de" }) {
           </div>
         </div>
       </section>
+
+      <div className="full-banner"><img src={full1} alt="" className="full-banner-img" /><div className="full-banner-fade" /></div>
 
       {/* ══ TEAM ══ */}
       <section className="section">
