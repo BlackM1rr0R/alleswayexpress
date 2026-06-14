@@ -3,6 +3,12 @@ import T from "../i18n";
 import PageHeader from "../components/PageHeader";
 import StatsBar from "../components/StatsBar";
 import aboutImg from "../assets/kamyon5.jpeg";
+import sekil1 from "../assets/sekil1.jpeg";
+import sekil2 from "../assets/sekil2.jpeg";
+import sekil3 from "../assets/sekil3.jpeg";
+import sekil4 from "../assets/sekil4.jpeg";
+
+const CERT_IMAGES = [sekil1, sekil2, sekil3, sekil4];
 import mercedesImg from "../assets/mercedes.jpeg";
 import dhlImg from "../assets/dhl.jpeg";
 import ihkImg from "../assets/ihk.jpeg";
@@ -113,7 +119,11 @@ function AboutPage({ setPage, lang = "de" }) {
           <div className="certs-grid">
             {ta.certs.map((c, i) => (
               <div className="cert-card" key={i}>
-                <div className="cert-icon"><I.Shield s={28} /></div>
+                {CERT_IMAGES[i] && (
+                  <div className="cert-img-wrap">
+                    <img src={CERT_IMAGES[i]} alt={c.label} className="cert-img" />
+                  </div>
+                )}
                 <div className="cert-label">{c.label}</div>
                 <div className="cert-sub">{c.sub}</div>
               </div>
