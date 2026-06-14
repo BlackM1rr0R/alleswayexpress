@@ -30,7 +30,7 @@ function formatNum(val, original) {
 
 function AnimatedStat({ num }) {
   const [display, setDisplay] = useState(num);
-  const startedRef = useRef(false);
+  const rafRef = useRef(null);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -39,23 +39,25 @@ function AnimatedStat({ num }) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !startedRef.current) {
-          startedRef.current = true;
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
+        if (entry.isIntersecting) {
           const duration = 1800;
           const start = performance.now();
           const tick = (now) => {
             const progress = Math.min((now - start) / duration, 1);
             const ease = 1 - Math.pow(1 - progress, 3);
             setDisplay(formatNum(target * ease, num));
-            if (progress < 1) requestAnimationFrame(tick);
+            if (progress < 1) rafRef.current = requestAnimationFrame(tick);
           };
-          requestAnimationFrame(tick);
+          rafRef.current = requestAnimationFrame(tick);
+        } else {
+          setDisplay(formatNum(0, num));
         }
       },
       { threshold: 0.4 }
     );
     if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    return () => { observer.disconnect(); if (rafRef.current) cancelAnimationFrame(rafRef.current); };
   }, [num]);
 
   return <div className="stat-number" ref={ref}>{display}</div>;
