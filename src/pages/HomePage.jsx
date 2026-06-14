@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import I from "../components/Icons";
 import T from "../i18n";
 import StatsBar from "../components/StatsBar";
@@ -167,7 +167,7 @@ function HomePage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══════════════ SERVICES ══════════════ */}
-      <section className="section section-dark" style={{ backgroundImage: `url(${kamyon7})`, backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed", position: "relative" }}>
+      <section className="section section-dark" style={{ backgroundImage: `url(${kamyon7})`, backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "scroll", position: "relative" }}>
         <div className="section-bg-overlay" />
         <div className="section-inner">
           <div className="section-header">
@@ -191,7 +191,7 @@ function HomePage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══════════════ WHY US ══════════════ */}
-      <section className="section" style={{ backgroundImage: `url(${kamyon3})`, backgroundSize: "cover", backgroundPosition: "center 40%", backgroundAttachment: "fixed", position: "relative" }}>
+      <section className="section" style={{ backgroundImage: `url(${kamyon3})`, backgroundSize: "cover", backgroundPosition: "center 40%", backgroundAttachment: "scroll", position: "relative" }}>
         <div className="section-bg-overlay" />
         <div className="section-inner">
           <div className="section-header">
@@ -243,7 +243,7 @@ function HomePage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══════════════ TESTIMONIALS ══════════════ */}
-      <section className="section section-dark" style={{ backgroundImage: `url(${kamyon4})`, backgroundSize: "cover", backgroundPosition: "center 60%", backgroundAttachment: "fixed", position: "relative" }}>
+      <section className="section section-dark" style={{ backgroundImage: `url(${kamyon4})`, backgroundSize: "cover", backgroundPosition: "center 60%", backgroundAttachment: "scroll", position: "relative" }}>
         <div className="section-bg-overlay" />
         <div className="section-inner">
           <div className="section-header">
@@ -314,7 +314,7 @@ function HomePage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══════════════ PRICING ══════════════ */}
-      <section className="section pricing-section" style={{ backgroundImage: `url(${kamyon1})`, backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed", position: "relative" }}>
+      <section className="section pricing-section" style={{ backgroundImage: `url(${kamyon1})`, backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "scroll", position: "relative" }}>
         <div className="section-bg-overlay" />
         <div className="section-inner">
           <div className="section-header">
@@ -392,3 +392,4 @@ function HomePage({ setPage, lang = "de" }) {
 }
 
 export default HomePage;
+
