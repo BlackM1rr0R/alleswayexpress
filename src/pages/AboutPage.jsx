@@ -3,6 +3,10 @@ import T from "../i18n";
 import PageHeader from "../components/PageHeader";
 import StatsBar from "../components/StatsBar";
 import aboutImg from "../assets/kamyon5.jpeg";
+import new1 from "../assets/new1.jpeg";
+import new2 from "../assets/new2.jpeg";
+import new3 from "../assets/new3.jpeg";
+import new4 from "../assets/new4.jpeg";
 import sekil1 from "../assets/sekil1.jpeg";
 import sekil2 from "../assets/sekil2.jpeg";
 import sekil3 from "../assets/sekil3.jpeg";
@@ -16,6 +20,7 @@ import hereMapsImg from "../assets/kamyon9.jpeg";
 import "../styles/About.css";
 
 const CERT_IMAGES = [sekil1, sekil2, sekil3, sekil4];
+const VALUE_IMAGES = [new1, new2, new3, new4];
 
 const BIZ_IMAGES = {
   "Mercedes-Benz": mercedesImg,
@@ -142,6 +147,11 @@ function AboutPage({ setPage, lang = "de" }) {
           <div className="features-grid">
             {ta.values.map((v, i) => (
               <div className="feature-card" key={i}>
+                {VALUE_IMAGES[i] && (
+                  <div className="value-img-wrap">
+                    <img src={VALUE_IMAGES[i]} alt={v.title} className="value-img" />
+                  </div>
+                )}
                 <div className="feature-icon-wrap">{VALUE_ICONS[i]}</div>
                 <h3>{v.title}</h3>
                 <p>{v.desc}</p>
