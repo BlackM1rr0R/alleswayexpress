@@ -606,6 +606,16 @@
   font-size: 30px;
   margin-bottom: 4px;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.biz-partner-img {
+  width: 72px;
+  height: 48px;
+  object-fit: contain;
+  filter: grayscale(30%) brightness(1.1);
+  border-radius: 6px;
 }
 .biz-name {
   font-family: var(--font-display);

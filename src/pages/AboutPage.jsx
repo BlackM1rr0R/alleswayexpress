@@ -3,7 +3,16 @@ import T from "../i18n";
 import PageHeader from "../components/PageHeader";
 import StatsBar from "../components/StatsBar";
 import aboutImg from "../assets/kamyon5.jpeg";
+import mercedesImg from "../assets/mercedes.jpeg";
+import dhlImg from "../assets/dhl.jpeg";
+import ihkImg from "../assets/ihk.jpeg";
 import "../styles/About.css";
+
+const BIZ_IMAGES = {
+  "Mercedes-Benz": mercedesImg,
+  "DHL": dhlImg,
+  "IHK Karlsruhe": ihkImg,
+};
 
 const VALUE_ICONS = [
   <I.Shield s={28} />, <I.Zap s={28} />, <I.Users s={28} />,
@@ -243,7 +252,11 @@ function AboutPage({ setPage, lang = "de" }) {
           <div className="biz-grid">
             {ta.biz_partners.map((p, i) => (
               <div className="biz-card" key={i}>
-                <div className="biz-icon">{p.icon}</div>
+                <div className="biz-icon">
+                  {BIZ_IMAGES[p.name]
+                    ? <img src={BIZ_IMAGES[p.name]} alt={p.name} className="biz-partner-img" />
+                    : <span>{p.icon}</span>}
+                </div>
                 <div className="biz-name">{p.name}</div>
                 <div className="biz-role">{p.role}</div>
               </div>
