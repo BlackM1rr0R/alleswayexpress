@@ -3,7 +3,7 @@ import T from "../i18n";
 import PageHeader from "../components/PageHeader";
 import StatsBar from "../components/StatsBar";
 import aboutImg from "../assets/kamyon5.jpeg";
-import new1 from "../assets/new1.jpeg";
+import new1 from "../assets/new5.jpeg";
 import new2 from "../assets/new2.jpeg";
 import new3 from "../assets/new3.jpeg";
 import new4 from "../assets/new4.jpeg";
