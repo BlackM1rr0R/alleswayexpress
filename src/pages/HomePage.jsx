@@ -11,7 +11,12 @@ import kamyon2 from "../assets/kamyon2.jpeg";
 import kamyon4 from "../assets/kamyon4.jpeg";
 import kamyon9 from "../assets/kamyon9.jpeg";
 import kamyon1 from "../assets/kamyon1.jpeg";
+import foto01 from "../assets/01foto.jpg";
+import foto02 from "../assets/02foto.jpg";
+import foto03 from "../assets/03foto.jpg";
 import "../styles/HomePage.css";
+
+const PROCESS_PHOTOS = [foto01, foto02, foto03];
 
 const VEHICLES = [
   { name: "Sprinter", base: 50,  rate: 1.2, icon: "🚐" },
@@ -152,14 +157,19 @@ function HomePage({ setPage, lang = "de" }) {
             {t.process_steps.map((p, i) => (
               <div className="process-card" key={i}>
                 {i < 2 && <div className="process-connector" />}
-                <div className={`process-num process-num--${PROCESS_COLORS[i]}`}>
-                  {String(i + 1).padStart(2, "0")}
+                <div className="process-photo-wrap">
+                  <img src={PROCESS_PHOTOS[i]} alt={p.title} className="process-photo" />
+                  <div className={`process-num process-num--${PROCESS_COLORS[i]}`}>
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
                 </div>
-                <div className={`process-icon-wrap process-icon-wrap--${PROCESS_COLORS[i]}`}>
-                  {PROCESS_ICONS[i]}
+                <div className="process-body">
+                  <div className={`process-icon-wrap process-icon-wrap--${PROCESS_COLORS[i]}`}>
+                    {PROCESS_ICONS[i]}
+                  </div>
+                  <h3>{p.title}</h3>
+                  <p>{p.desc}</p>
                 </div>
-                <h3>{p.title}</h3>
-                <p>{p.desc}</p>
               </div>
             ))}
           </div>
