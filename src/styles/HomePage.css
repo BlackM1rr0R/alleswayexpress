@@ -3,6 +3,19 @@
    Black & Gold Premium
    ══════════════════════════════════════════ */
 
+/* ── Section background photo overlay ── */
+.section-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 10, 14, 0.82);
+  pointer-events: none;
+  z-index: 0;
+}
+.section-bg-overlay ~ * {
+  position: relative;
+  z-index: 1;
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }

@@ -166,49 +166,9 @@ function HomePage({ setPage, lang = "de" }) {
         </div>
       </section>
 
-      {/* ══════════════ FLEET GALLERY ══════════════ */}
-      <section className="section fleet-section">
-        <div className="section-inner">
-          <div className="section-header">
-            <div className="section-eyebrow">{t.fleet_eyebrow}</div>
-            <h2 className="section-title">{t.fleet_title}</h2>
-            <p className="section-subtitle">{t.fleet_subtitle}</p>
-          </div>
-          <div className="fleet-grid">
-            <div className="fleet-card fleet-large">
-              <img src={kamyon7} alt="Mercedes Atego LKW" />
-              <div className="fleet-card-label"><span>{t.fleet_labels[0]}</span></div>
-            </div>
-            <div className="fleet-side">
-              <div className="fleet-card">
-                <img src={kamyon6} alt="Mercedes Sprinter" />
-                <div className="fleet-card-label"><span>{t.fleet_labels[1]}</span></div>
-              </div>
-              <div className="fleet-card">
-                <img src={kamyon3} alt="Mercedes Actros" />
-                <div className="fleet-card-label"><span>{t.fleet_labels[2]}</span></div>
-              </div>
-            </div>
-          </div>
-          <div className="fleet-row2">
-            <div className="fleet-card">
-              <img src={kamyon2} alt="Sprinter Fuhrpark" />
-              <div className="fleet-card-label"><span>{t.fleet_labels[3]}</span></div>
-            </div>
-            <div className="fleet-card">
-              <img src={kamyon4} alt="Atego Fuhrpark" />
-              <div className="fleet-card-label"><span>{t.fleet_labels[4]}</span></div>
-            </div>
-            <div className="fleet-card">
-              <img src={kamyon1} alt="Fernverkehr" />
-              <div className="fleet-card-label"><span>{t.fleet_labels[5]}</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ══════════════ SERVICES ══════════════ */}
-      <section className="section section-dark">
+      <section className="section section-dark" style={{ backgroundImage: `url(${kamyon7})`, backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed", position: "relative" }}>
+        <div className="section-bg-overlay" />
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{t.svc_eyebrow}</div>
@@ -231,7 +191,8 @@ function HomePage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══════════════ WHY US ══════════════ */}
-      <section className="section">
+      <section className="section" style={{ backgroundImage: `url(${kamyon3})`, backgroundSize: "cover", backgroundPosition: "center 40%", backgroundAttachment: "fixed", position: "relative" }}>
+        <div className="section-bg-overlay" />
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{t.why_eyebrow}</div>
@@ -282,7 +243,8 @@ function HomePage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══════════════ TESTIMONIALS ══════════════ */}
-      <section className="section section-dark">
+      <section className="section section-dark" style={{ backgroundImage: `url(${kamyon4})`, backgroundSize: "cover", backgroundPosition: "center 60%", backgroundAttachment: "fixed", position: "relative" }}>
+        <div className="section-bg-overlay" />
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{t.testi_eyebrow}</div>
@@ -352,7 +314,8 @@ function HomePage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══════════════ PRICING ══════════════ */}
-      <section className="section pricing-section">
+      <section className="section pricing-section" style={{ backgroundImage: `url(${kamyon1})`, backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed", position: "relative" }}>
+        <div className="section-bg-overlay" />
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{t.pricing_eyebrow}</div>
