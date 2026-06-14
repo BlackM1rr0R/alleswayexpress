@@ -1,4 +1,4 @@
-/* ══════════════════════════════════════════
+﻿/* ══════════════════════════════════════════
    ABOUT PAGE — Allesway Express
    Black & Gold Premium
    ══════════════════════════════════════════ */
@@ -20,10 +20,10 @@
   aspect-ratio: 3 / 2;
   border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgba(201,162,39,0.18);
+  border: 1px solid rgba(212,175,55,0.18);
   box-shadow:
     0 30px 80px rgba(0,0,0,0.5),
-    0 0 0 1px rgba(201,162,39,0.05);
+    0 0 0 1px rgba(212,175,55,0.05);
   flex-shrink: 0;
 }
 
@@ -87,8 +87,8 @@
   transition: all 0.25s ease;
 }
 .about-feature:hover {
-  border-color: rgba(201,162,39,0.18);
-  background: rgba(201,162,39,0.05);
+  border-color: rgba(212,175,55,0.18);
+  background: rgba(212,175,55,0.05);
   color: rgba(255,255,255,0.82);
   transform: translateY(-1px);
 }
@@ -136,7 +136,7 @@
 }
 .timeline-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(201,162,39,0.14);
+  border-color: rgba(212,175,55,0.14);
   box-shadow: 0 16px 48px rgba(0,0,0,0.25);
 }
 .timeline-card:hover::before { opacity: 1; }
@@ -244,7 +244,7 @@
 }
 .team-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(201,162,39,0.14);
+  border-color: rgba(212,175,55,0.14);
   box-shadow: 0 20px 56px rgba(0,0,0,0.3);
 }
 .team-card:hover::before { opacity: 1; }
@@ -263,7 +263,7 @@
   letter-spacing: -1px;
   border: 1px solid transparent;
 }
-.team-avatar--gold   { background: rgba(201,162,39,0.1);  border-color: rgba(201,162,39,0.2);  color: var(--accent); }
+.team-avatar--gold   { background: rgba(212,175,55,0.1);  border-color: rgba(212,175,55,0.2);  color: var(--accent); }
 .team-avatar--blue   { background: rgba(59,130,246,0.1);  border-color: rgba(59,130,246,0.2);  color: #60a5fa; }
 .team-avatar--green  { background: rgba(34,197,94,0.1);   border-color: rgba(34,197,94,0.2);   color: #4ade80; }
 .team-avatar--purple { background: rgba(168,85,247,0.1);  border-color: rgba(168,85,247,0.2);  color: #c084fc; }
@@ -313,8 +313,8 @@
   cursor: default;
 }
 .cert-card:hover {
-  border-color: rgba(201,162,39,0.15);
-  background: rgba(201,162,39,0.03);
+  border-color: rgba(212,175,55,0.15);
+  background: rgba(212,175,55,0.03);
   transform: translateY(-4px);
 }
 .cert-icon {
@@ -360,8 +360,8 @@
   overflow: hidden;
 }
 .mv-card--mission {
-  background: rgba(201,162,39,0.05);
-  border: 1px solid rgba(201,162,39,0.16);
+  background: rgba(212,175,55,0.05);
+  border: 1px solid rgba(212,175,55,0.16);
 }
 .mv-card--vision {
   background: rgba(59,130,246,0.04);
@@ -451,8 +451,8 @@
   transition: opacity 0.3s;
 }
 .award-card:hover {
-  border-color: rgba(201,162,39,0.16);
-  background: rgba(201,162,39,0.03);
+  border-color: rgba(212,175,55,0.16);
+  background: rgba(212,175,55,0.03);
   transform: translateY(-4px);
 }
 .award-card:hover::after { opacity: 1; }
@@ -556,7 +556,7 @@
   transition: opacity 0.3s;
 }
 .number-card:hover::before { opacity: 1; }
-.number-card:hover { transform: translateY(-3px); border-color: rgba(201,162,39,0.18); }
+.number-card:hover { transform: translateY(-3px); border-color: rgba(212,175,55,0.18); }
 .number-num {
   font-family: var(--font-display);
   font-size: 36px;
@@ -599,7 +599,7 @@
   transition: all 0.3s;
 }
 .biz-card:hover {
-  border-color: rgba(201,162,39,0.2);
+  border-color: rgba(212,175,55,0.2);
   transform: translateY(-3px);
 }
 .biz-icon {
@@ -637,3 +637,4 @@
   .sustain-grid { grid-template-columns: 1fr; }
   .biz-grid     { grid-template-columns: repeat(2, 1fr); }
 }
+
