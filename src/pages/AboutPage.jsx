@@ -3,10 +3,6 @@ import T from "../i18n";
 import PageHeader from "../components/PageHeader";
 import StatsBar from "../components/StatsBar";
 import aboutImg from "../assets/kamyon5.jpeg";
-import sekil1 from "../assets/sekil1.jpeg";
-import sekil2 from "../assets/sekil2.jpeg";
-import sekil3 from "../assets/sekil3.jpeg";
-import sekil4 from "../assets/sekil4.jpeg";
 import mercedesImg from "../assets/mercedes.jpeg";
 import dhlImg from "../assets/dhl.jpeg";
 import ihkImg from "../assets/ihk.jpeg";
@@ -15,7 +11,7 @@ import dekraImg from "../assets/dekra.png";
 import hereMapsImg from "../assets/kamyon9.jpeg";
 import "../styles/About.css";
 
-const CERT_IMAGES = [sekil4, sekil1, sekil2, sekil3];
+const CERT_IMAGES = [];
 
 const BIZ_IMAGES = {
   "Mercedes-Benz": mercedesImg,
