@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useReveal, Particles } from "../utils/animations";
 import I from "../components/Icons";
 import T from "../i18n";
 import PageHeader from "../components/PageHeader";
@@ -34,9 +35,28 @@ function ServicesPage({ setPage, lang = "de" }) {
   const stat   = STATIC[active];
   const isEven = active % 2 === 0;
 
+  const refDetail  = useReveal();
+  const refOverview = useReveal();
+  const refFleet   = useReveal();
+  const refProcess = useReveal();
+  const refCompare = useReveal();
+  const refZones   = useReveal();
+  const refTesti   = useReveal();
+
   return (
     <>
       <PageHeader title={ph.title} desc={ph.desc} setPage={setPage} lang={lang} page="services" />
+
+      {/* ══ PAGE BACKGROUND ══ */}
+      <div className="svc-page-bg">
+        <div className="svc-orb svc-orb-1" />
+        <div className="svc-orb svc-orb-2" />
+        <div className="svc-orb svc-orb-3" />
+        <div className="svc-orb svc-orb-4" />
+        <div className="svc-grid-bg" />
+        <div className="svc-scan-line" />
+      </div>
+      <Particles />
 
       {/* ══ TAB NAVIGATION ══ */}
       <div className="services-tabs-outer">
@@ -55,7 +75,7 @@ function ServicesPage({ setPage, lang = "de" }) {
       </div>
 
       {/* ══ SERVICE DETAIL ══ */}
-      <section className="section service-detail-section">
+      <section className="section service-detail-section reveal-section" ref={refDetail}>
         <div className="section-inner">
           <div className={`service-detail${isEven ? "" : " service-detail--reverse"}`} key={active}>
             <div className="service-detail-img-wrap">
@@ -96,7 +116,7 @@ function ServicesPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ ALL SERVICES QUICK NAV ══ */}
-      <section className="section section-dark">
+      <section className="section section-dark reveal-section" ref={refOverview}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{t.overview_eyebrow}</div>
@@ -120,7 +140,7 @@ function ServicesPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ FLEET SPECS ══ */}
-      <section className="section">
+      <section className="section reveal-section" ref={refFleet}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{t.fleet_eyebrow}</div>
@@ -165,7 +185,7 @@ function ServicesPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ HOW IT WORKS ══ */}
-      <section className="section section-dark svc-process-section">
+      <section className="section section-dark svc-process-section reveal-section" ref={refProcess}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{t.process_eyebrow}</div>
@@ -185,7 +205,7 @@ function ServicesPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ VEHICLE COMPARISON TABLE ══ */}
-      <section className="section svc-compare-section">
+      <section className="section svc-compare-section reveal-section" ref={refCompare}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{t.compare_eyebrow}</div>
@@ -216,7 +236,7 @@ function ServicesPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ COVERAGE ZONES ══ */}
-      <section className="section section-dark svc-zones-section">
+      <section className="section section-dark svc-zones-section reveal-section" ref={refZones}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{t.zones_eyebrow}</div>
@@ -236,7 +256,7 @@ function ServicesPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ SERVICE TESTIMONIALS ══ */}
-      <section className="section svc-testi-section">
+      <section className="section svc-testi-section reveal-section" ref={refTesti}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{t.svc_testi_eyebrow}</div>

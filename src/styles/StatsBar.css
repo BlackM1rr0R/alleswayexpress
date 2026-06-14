@@ -1,15 +1,15 @@
 /* ─── STATS BAR ─── */
 .stats-bar {
   background: var(--bg);
-  padding: 48px 40px;
+  padding: 48px 20px;
 }
 
 .stats-inner {
-  max-width: 1320px;
+  max-width: 1600px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 12px;
 }
 
 .stat-item {
@@ -18,10 +18,10 @@
   overflow: hidden;
   text-align: center;
   padding: 0;
-  border: 1px solid rgba(212,130,26,0.15);
+  border: 1px solid rgba(255,255,255,0.08);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   cursor: default;
-  height: 360px;
+  height: 340px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,6 +30,28 @@
 .stat-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* Ken Burns keyframes — 4 fərqli istiqamət */
+@keyframes kb1 {
+  0%   { transform: scale(1.08) translate(0px, 0px); }
+  50%  { transform: scale(1.14) translate(-12px, -8px); }
+  100% { transform: scale(1.08) translate(0px, 0px); }
+}
+@keyframes kb2 {
+  0%   { transform: scale(1.1) translate(10px, 5px); }
+  50%  { transform: scale(1.16) translate(-6px, -10px); }
+  100% { transform: scale(1.1) translate(10px, 5px); }
+}
+@keyframes kb3 {
+  0%   { transform: scale(1.12) translate(-8px, 6px); }
+  50%  { transform: scale(1.06) translate(10px, -4px); }
+  100% { transform: scale(1.12) translate(-8px, 6px); }
+}
+@keyframes kb4 {
+  0%   { transform: scale(1.07) translate(6px, -6px); }
+  50%  { transform: scale(1.13) translate(-8px, 8px); }
+  100% { transform: scale(1.07) translate(6px, -6px); }
 }
 
 /* background image */
@@ -44,15 +66,17 @@
   object-fit: cover;
   object-position: center;
   display: block;
-  transition: transform 0.55s ease;
 }
-.stat-item:hover .stat-bg-img {
-  transform: scale(1.06);
-}
+
+.stat-item:nth-child(1) .stat-bg-img { animation: kb1 10s ease-in-out infinite; }
+.stat-item:nth-child(2) .stat-bg-img { animation: kb2 12s ease-in-out infinite; }
+.stat-item:nth-child(3) .stat-bg-img { animation: kb3 11s ease-in-out infinite; }
+.stat-item:nth-child(4) .stat-bg-img { animation: kb4 13s ease-in-out infinite; }
+
 .stat-bg-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(8, 10, 14, 0.45);
+  background: rgba(8, 10, 14, 0.50);
 }
 
 /* text */
@@ -80,12 +104,13 @@
 /* Responsive */
 @media (max-width: 960px) {
   .stats-bar { padding: 32px 18px; }
-  .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .stat-item { padding: 36px 16px 30px; }
+  .stats-inner { grid-template-columns: 1fr; gap: 12px; }
+  .stat-item { height: 260px; padding: 0; }
 }
 @media (max-width: 480px) {
   .stats-bar { padding: 24px 14px; }
   .stats-inner { gap: 10px; }
+  .stat-item { height: 220px; }
   .stat-number { font-size: 28px; }
   .stat-label  { font-size: 12.5px; }
 }

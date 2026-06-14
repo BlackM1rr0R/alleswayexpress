@@ -2,8 +2,9 @@ import I from "../components/Icons";
 import T from "../i18n";
 import PageHeader from "../components/PageHeader";
 import StatsBar from "../components/StatsBar";
+import { useReveal, CountUp, Particles } from "../utils/animations";
 import aboutImg from "../assets/kamyon5.jpeg";
-import new1 from "../assets/new5.jpeg";
+import new1 from "../assets/new1.jpeg";
 import new2 from "../assets/new2.jpeg";
 import new3 from "../assets/new3.jpeg";
 import new4 from "../assets/new4.jpeg";
@@ -31,21 +32,29 @@ const BIZ_IMAGES = {
   "HERE Maps": hereMapsImg,
 };
 
-const VALUE_ICONS = [
-  <I.Shield s={28} />, <I.Zap s={28} />, <I.Users s={28} />,
-  <I.Star s={28} c="var(--accent)" />,
-];
 
 function AboutPage({ setPage, lang = "de" }) {
   const ta = (T[lang] || T.de).about;
   const ph = (T[lang] || T.de).ph.about;
 
+  const refIntro    = useReveal();
+  const refTimeline = useReveal();
+  const refTeam     = useReveal();
+  const refCerts    = useReveal();
+  const refValues   = useReveal();
+  const refMv       = useReveal();
+  const refAwards   = useReveal();
+  const refSustain  = useReveal();
+  const refNumbers  = useReveal();
+  const refBiz      = useReveal();
+
   return (
     <>
       <PageHeader title={ph.title} desc={ph.desc} setPage={setPage} lang={lang} page="about" />
+      <Particles />
 
       {/* ══ ABOUT INTRO ══ */}
-      <section className="section">
+      <section className="section reveal-section" ref={refIntro}>
         <div className="section-inner">
           <div className="about-grid">
             <div className="about-image">
@@ -75,7 +84,7 @@ function AboutPage({ setPage, lang = "de" }) {
       <StatsBar lang={lang} />
 
       {/* ══ TIMELINE ══ */}
-      <section className="section section-dark">
+      <section className="section section-dark reveal-section" ref={refTimeline}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{ta.timeline_eyebrow}</div>
@@ -94,7 +103,7 @@ function AboutPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ TEAM ══ */}
-      <section className="section">
+      <section className="section reveal-section" ref={refTeam}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{ta.team_eyebrow}</div>
@@ -115,7 +124,7 @@ function AboutPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ CERTIFICATES ══ */}
-      <section className="section section-dark">
+      <section className="section section-dark reveal-section" ref={refCerts}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{ta.cert_eyebrow}</div>
@@ -138,7 +147,7 @@ function AboutPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ VALUES ══ */}
-      <section className="section">
+      <section className="section reveal-section" ref={refValues}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{ta.values_eyebrow}</div>
@@ -160,29 +169,8 @@ function AboutPage({ setPage, lang = "de" }) {
         </div>
       </section>
 
-      {/* ══ MAP ══ */}
-      <section className="section section-dark">
-        <div className="section-inner">
-          <div className="section-header">
-            <div className="section-eyebrow">{ta.map_eyebrow}</div>
-            <h2 className="section-title">{ta.map_title}</h2>
-            <p className="section-subtitle">{ta.map_subtitle}</p>
-          </div>
-          <div className="map-wrap">
-            <iframe
-              title="Allesway Express Standort"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2617.5!2d8.2577!3d49.0487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797cc3e3ddd1c1d%3A0x7c3e3ddd1c1d!2sSchulplatz+2%2C+76744+W%C3%B6rth+am+Rhein!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
-              width="100%" height="100%"
-              style={{ border: 0, borderRadius: "20px" }}
-              allowFullScreen="" loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* ══ MISSION & VISION ══ */}
-      <section className="section mv-section">
+      <section className="section mv-section reveal-section" ref={refMv}>
         <div className="section-inner">
           <div className="section-eyebrow" style={{ textAlign: "center", marginBottom: 24 }}>{ta.mv_eyebrow}</div>
           <div className="mv-grid">
@@ -207,7 +195,7 @@ function AboutPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ AWARDS ══ */}
-      <section className="section section-dark">
+      <section className="section section-dark reveal-section" ref={refAwards}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{ta.awards_eyebrow}</div>
@@ -228,7 +216,7 @@ function AboutPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ SUSTAINABILITY ══ */}
-      <section className="section sustain-section">
+      <section className="section sustain-section reveal-section" ref={refSustain}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{ta.sustain_eyebrow}</div>
@@ -248,7 +236,7 @@ function AboutPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ NUMBERS / FACTS ══ */}
-      <section className="section section-dark numbers-section">
+      <section className="section section-dark numbers-section reveal-section" ref={refNumbers}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{ta.numbers_eyebrow}</div>
@@ -257,7 +245,7 @@ function AboutPage({ setPage, lang = "de" }) {
           <div className="numbers-grid">
             {ta.numbers.map((n, i) => (
               <div className="number-card" key={i}>
-                <div className="number-num">{n.num}</div>
+                <div className="number-num"><CountUp val={n.num} /></div>
                 <div className="number-label">{n.label}</div>
                 <div className="number-desc">{n.desc}</div>
               </div>
@@ -267,7 +255,7 @@ function AboutPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ BUSINESS PARTNERS ══ */}
-      <section className="section biz-section">
+      <section className="section biz-section reveal-section" ref={refBiz}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{ta.biz_eyebrow}</div>

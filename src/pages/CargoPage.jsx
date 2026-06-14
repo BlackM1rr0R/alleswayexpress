@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useReveal, Particles } from "../utils/animations";
 import I from "../components/Icons";
 import T from "../i18n";
 import PageHeader from "../components/PageHeader";
@@ -48,6 +49,12 @@ function CargoPage({ setPage, lang = "de" }) {
     }
   }
 
+  const refLiveStats  = useReveal();
+  const refShipments  = useReveal();
+  const refInfoCards  = useReveal();
+  const refHowTracking = useReveal();
+  const refCargoTypes = useReveal();
+
   const goToPage = p => {
     setPageNum(p);
     window.scrollTo({ top: 480, behavior: "smooth" });
@@ -81,8 +88,19 @@ function CargoPage({ setPage, lang = "de" }) {
     <>
       <PageHeader title={ph.title} desc={ph.desc} setPage={setPage} lang={lang} page="cargo" />
 
+      {/* ══ PAGE BACKGROUND ══ */}
+      <div className="cargo-page-bg">
+        <div className="cargo-orb cargo-orb-1" />
+        <div className="cargo-orb cargo-orb-2" />
+        <div className="cargo-orb cargo-orb-3" />
+        <div className="cargo-orb cargo-orb-4" />
+        <div className="cargo-grid-bg" />
+        <div className="cargo-scan-line" />
+      </div>
+      <Particles />
+
       {/* ══ LIVE STATS ══ */}
-      <section className="section live-stats-section">
+      <section className="section live-stats-section reveal-section" ref={refLiveStats}>
         <div className="section-inner">
           <div className="section-eyebrow" style={{ textAlign: "center", marginBottom: 8 }}>{tc.live_eyebrow}</div>
           <h2 className="section-title" style={{ textAlign: "center", marginBottom: 32 }}>{tc.live_title}</h2>
@@ -189,7 +207,7 @@ function CargoPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ ALL SHIPMENTS ══ */}
-      <section className="section">
+      <section className="section reveal-section" ref={refShipments}>
         <div className="section-inner">
           <div className="cargo-section-header">
             <h3>{tc.all_title}</h3>
@@ -290,7 +308,7 @@ function CargoPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ INFO CARDS ══ */}
-      <section className="section section-dark">
+      <section className="section section-dark reveal-section" ref={refInfoCards}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{tc.info_eyebrow}</div>
@@ -309,7 +327,7 @@ function CargoPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ HOW TRACKING WORKS ══ */}
-      <section className="section cargo-how-section">
+      <section className="section cargo-how-section reveal-section" ref={refHowTracking}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{tc.how_eyebrow}</div>
@@ -330,7 +348,7 @@ function CargoPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ CARGO TYPES ══ */}
-      <section className="section section-dark cargo-types-section">
+      <section className="section section-dark cargo-types-section reveal-section" ref={refCargoTypes}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{tc.types_eyebrow}</div>

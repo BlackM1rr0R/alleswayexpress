@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useReveal } from "../utils/animations";
 import I from "../components/Icons";
 import T from "../i18n";
 import PageHeader from "../components/PageHeader";
@@ -23,11 +24,26 @@ function ContactPage({ setPage, lang = "de" }) {
   const tc = (T[lang] || T.de).contact;
   const ph = (T[lang] || T.de).ph.contact;
 
+  const now = new Date();
+  const day = now.getDay(); // 0=Sun, 6=Sat
+  const h = now.getHours();
+  const m = now.getMinutes();
+  const mins = h * 60 + m;
+  const isOpen = day >= 1 && day <= 5 &&
+    ((mins >= 9 * 60 && mins < 12 * 60) || (mins >= 13 * 60 && mins < 18 * 60));
+
   const [step, setStep]       = useState(1);
   const [sent, setSent]       = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError]     = useState("");
   const [openFaq, setOpenFaq] = useState(null);
+
+  const refQuick      = useReveal();
+  const refGuarantees = useReveal();
+  const refContact    = useReveal();
+  const refFaq        = useReveal();
+  const refHours      = useReveal();
+  const refSocial     = useReveal();
 
   const [data, setData] = useState({
     serviceType: "", urgency: "", from: "", to: "",
@@ -91,10 +107,17 @@ function ContactPage({ setPage, lang = "de" }) {
 
   return (
     <>
+      <div className="contact-page-bg" aria-hidden>
+        <div className="contact-orb contact-orb-1" />
+        <div className="contact-orb contact-orb-2" />
+        <div className="contact-orb contact-orb-3" />
+        <div className="contact-grid-bg" />
+        <div className="contact-scan-line" />
+      </div>
       <PageHeader title={ph.title} desc={ph.desc} setPage={setPage} lang={lang} page="contact" />
 
       {/* ══ QUICK CONNECT ══ */}
-      <section className="section quick-section">
+      <section className="section quick-section reveal-section" ref={refQuick}>
         <div className="section-inner">
           <div className="section-eyebrow" style={{ textAlign: "center", marginBottom: 8 }}>{tc.quick_eyebrow}</div>
           <h2 className="section-title" style={{ textAlign: "center", marginBottom: 32 }}>{tc.quick_title}</h2>
@@ -127,7 +150,7 @@ function ContactPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ GUARANTEES ══ */}
-      <section className="section section-dark guarantees-section">
+      <section className="section section-dark guarantees-section reveal-section" ref={refGuarantees}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{tc.guarantee_eyebrow}</div>
@@ -145,7 +168,7 @@ function ContactPage({ setPage, lang = "de" }) {
         </div>
       </section>
 
-      <section className="section contact-section">
+      <section className="section contact-section reveal-section" ref={refContact}>
         <div className="section-inner">
           <div className="contact-grid">
 
@@ -316,21 +339,44 @@ function ContactPage({ setPage, lang = "de" }) {
             </div>
           </div>
 
-          <div className="contact-map">
-            <iframe
-              title="Allesway Express Standort"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2617.5!2d8.2577!3d49.0487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797cc3e3ddd1c1d%3A0x7c3e3ddd1c1d!2sSchulplatz+2%2C+76744+W%C3%B6rth+am+Rhein!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
-              width="100%" height="100%"
-              style={{ border: 0, borderRadius: "20px" }}
-              allowFullScreen="" loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+          <div className="contact-map-wrap">
+            <div className="contact-map">
+              <iframe
+                title="Allesway Express Standort"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2617.5!2d8.2577!3d49.0487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797cc3e3ddd1c1d%3A0x7c3e3ddd1c1d!2sSchulplatz+2%2C+76744+W%C3%B6rth+am+Rhein!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
+                width="100%" height="100%"
+                style={{ border: 0 }}
+                allowFullScreen="" loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="contact-map-pin">
+                <div className="contact-map-pin-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                </div>
+                <div className="contact-map-pin-ripple" />
+                <div className="contact-map-pin-ripple contact-map-pin-ripple2" />
+              </div>
+              <div className="contact-map-card">
+                <div className="contact-map-card-title">Allesway Express GmbH</div>
+                <div className="contact-map-card-addr">
+                  Schulplatz 2<br />76744 Wörth am Rhein<br />Deutschland
+                </div>
+                <div className="contact-map-card-badge" style={!isOpen ? { background: "rgba(239,68,68,0.1)", borderColor: "rgba(239,68,68,0.25)" } : {}}>
+                  <div className="contact-map-card-dot" style={!isOpen ? { background: "#ef4444", boxShadow: "0 0 6px rgba(239,68,68,0.6)" } : {}} />
+                  <span style={!isOpen ? { color: "#ef4444" } : {}}>
+                    {isOpen
+                      ? (lang === "en" ? "Open now" : "Jetzt geöffnet")
+                      : (lang === "en" ? "Closed" : "Geschlossen")}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="section">
+      <section className="section faq-section-contact reveal-section" ref={refFaq}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{tc.faq_eyebrow}</div>
@@ -354,7 +400,7 @@ function ContactPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ OFFICE HOURS ══ */}
-      <section className="section hours-section">
+      <section className="section hours-section reveal-section" ref={refHours}>
         <div className="section-inner">
           <div className="section-header">
             <div className="section-eyebrow">{tc.hours_eyebrow}</div>
@@ -401,7 +447,7 @@ function ContactPage({ setPage, lang = "de" }) {
       </section>
 
       {/* ══ SOCIAL ══ */}
-      <section className="section section-dark contact-social-section">
+      <section className="section section-dark contact-social-section reveal-section" ref={refSocial}>
         <div className="section-inner contact-social-inner">
           <div className="section-eyebrow">{tc.social_eyebrow}</div>
           <h2 className="section-title">{tc.social_title}</h2>

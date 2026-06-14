@@ -3,6 +3,291 @@
    Premium Dark UI
    ══════════════════════════════════════════ */
 
+/* ─── KEYFRAMES ─── */
+@keyframes cargoOrb1 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%      { transform: translate(70px,-55px) scale(1.15); }
+  66%      { transform: translate(-45px,40px) scale(0.88); }
+}
+@keyframes cargoOrb2 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%      { transform: translate(-60px,45px) scale(1.12); }
+  66%      { transform: translate(50px,-60px) scale(0.9); }
+}
+@keyframes cargoOrb3 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%      { transform: translate(40px,50px) scale(1.2); }
+}
+@keyframes cargoOrb4 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%      { transform: translate(-30px,-40px) scale(1.1); }
+}
+@keyframes cargoGrid {
+  0%   { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+@keyframes cargoScan {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { transform: translateY(200%); opacity: 0; }
+}
+@keyframes cargoRadial {
+  0%,100% { opacity: 0.5; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.2); }
+}
+@keyframes cargoDiag {
+  0%   { background-position: 0 0; }
+  100% { background-position: 80px 80px; }
+}
+@keyframes cargoAurora {
+  0%   { transform: rotate(0deg) scale(1.3); }
+  100% { transform: rotate(360deg) scale(1.3); }
+}
+@keyframes cargoBeam {
+  0%   { transform: translateX(-100%) skewX(-15deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateX(200%) skewX(-15deg); opacity: 0; }
+}
+@keyframes cargoWave {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes cargoScanLines {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(40px); }
+}
+@keyframes statPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(212,130,26,0); }
+  50%      { box-shadow: 0 0 24px 4px rgba(212,130,26,0.08); }
+}
+
+/* ─── PAGE BACKGROUND ─── */
+.cargo-page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.cargo-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.65;
+}
+.cargo-orb-1 {
+  width: 580px; height: 580px;
+  top: -160px; right: -120px;
+  background: radial-gradient(circle, rgba(212,130,26,0.2) 0%, transparent 70%);
+  animation: cargoOrb1 6s ease-in-out infinite;
+}
+.cargo-orb-2 {
+  width: 480px; height: 480px;
+  bottom: 5%; left: -100px;
+  background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+  animation: cargoOrb2 8s ease-in-out infinite;
+}
+.cargo-orb-3 {
+  width: 320px; height: 320px;
+  top: 40%; left: 35%;
+  background: radial-gradient(circle, rgba(34,197,94,0.08) 0%, transparent 70%);
+  animation: cargoOrb3 5s ease-in-out infinite;
+}
+.cargo-orb-4 {
+  width: 260px; height: 260px;
+  top: 20%; left: 10%;
+  background: radial-gradient(circle, rgba(168,85,247,0.07) 0%, transparent 70%);
+  animation: cargoOrb4 7s ease-in-out infinite;
+}
+.cargo-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.013) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.013) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: cargoGrid 5s linear infinite;
+}
+.cargo-scan-line {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(212,130,26,0.45), transparent);
+  filter: blur(1px);
+  animation: cargoScan 4s ease-in-out infinite;
+}
+
+/* ─── SECTION BACKGROUNDS ─── */
+
+/* Live stats — diagonal gold grid */
+.live-stats-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #07080b 0%, #0d0f14 100%) !important;
+}
+.live-stats-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 50%, rgba(212,130,26,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 70% at 90% 50%, rgba(34,197,94,0.06) 0%, transparent 60%);
+  animation: cargoRadial 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.live-stats-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(45deg, rgba(212,130,26,0.04) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(212,130,26,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: cargoDiag 3s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.live-stats-section > * { position: relative; z-index: 1; }
+
+/* Live stat cards — pulse glow */
+.live-stat-card {
+  animation: statPulse 4s ease-in-out infinite;
+}
+.live-stat-card:nth-child(2) { animation-delay: -1s; }
+.live-stat-card:nth-child(3) { animation-delay: -2s; }
+.live-stat-card:nth-child(4) { animation-delay: -3s; }
+
+/* Track hero — aurora */
+.track-hero {
+  position: relative;
+  overflow: hidden;
+}
+.track-hero::after {
+  content: '';
+  position: absolute;
+  inset: -60%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(212,130,26,0.07) 0deg,
+    rgba(59,130,246,0.04) 90deg,
+    rgba(212,130,26,0.03) 180deg,
+    rgba(168,85,247,0.04) 270deg,
+    rgba(212,130,26,0.07) 360deg
+  );
+  animation: cargoAurora 8s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.track-hero > * { position: relative; z-index: 1; }
+
+/* Shipments section — wave gradient */
+.section.reveal-section:has(.cargo-section-header) {
+  position: relative;
+  overflow: hidden;
+}
+.section.reveal-section:has(.cargo-section-header)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(212,130,26,0.05) 0%,
+    transparent 40%,
+    rgba(59,130,246,0.04) 100%
+  );
+  background-size: 300% 300%;
+  animation: cargoWave 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.section.reveal-section:has(.cargo-section-header) > * { position: relative; z-index: 1; }
+
+/* Info cards section — rotating aurora */
+.section.section-dark:has(.cargo-info-grid) {
+  position: relative;
+  overflow: hidden;
+}
+.section.section-dark:has(.cargo-info-grid)::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(212,130,26,0.07) 0deg,
+    rgba(59,130,246,0.05) 90deg,
+    rgba(34,197,94,0.04) 180deg,
+    rgba(212,130,26,0.07) 270deg,
+    rgba(212,130,26,0.07) 360deg
+  );
+  animation: cargoAurora 6s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.section.section-dark:has(.cargo-info-grid) > * { position: relative; z-index: 1; }
+
+/* How tracking section — beam sweep */
+.cargo-how-section {
+  position: relative;
+  overflow: hidden;
+}
+.cargo-how-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 50%, rgba(212,130,26,0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 0% 100%, rgba(59,130,246,0.05) 0%, transparent 55%);
+  animation: cargoRadial 3.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.cargo-how-section::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 100px;
+  background: linear-gradient(90deg, transparent, rgba(212,130,26,0.1), transparent);
+  animation: cargoBeam 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.cargo-how-section > * { position: relative; z-index: 1; }
+
+/* Cargo types — scan lines + radial */
+.cargo-types-section {
+  position: relative;
+  overflow: hidden;
+}
+.cargo-types-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(168,85,247,0.07) 0%, transparent 65%);
+  animation: cargoRadial 2.8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.cargo-types-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 38px,
+    rgba(212,130,26,0.03) 38px,
+    rgba(212,130,26,0.03) 39px
+  );
+  animation: cargoScanLines 1.5s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.cargo-types-section > * { position: relative; z-index: 1; }
+
 /* ─── SEARCH BAR ─── */
 .cargo-search-wrap {
   max-width: 620px;
@@ -404,8 +689,10 @@
   top: -100px; left: 50%;
   transform: translateX(-50%);
   width: 600px; height: 400px;
-  background: radial-gradient(ellipse, rgba(212,130,26,0.05) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(212,130,26,0.09) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 1;
+  animation: cargoRadial 3s ease-in-out infinite;
 }
 
 .track-hero-content {

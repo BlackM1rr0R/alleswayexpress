@@ -245,7 +245,7 @@ button {
 
   /* Features grid */
   .features-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: 1fr !important;
     gap: 10px !important;
   }
   .feature-card { padding: 20px 14px !important; }
@@ -296,5 +296,261 @@ button {
   .contact-map { height: 240px !important; }
 }
 
+/* ══════════════════════════════════════════
+   GLOBAL ANIMATION KEYFRAMES & REVEAL
+   ══════════════════════════════════════════ */
 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUpSlow {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 8px rgba(212,130,26,0.5); }
+  50%       { opacity: 0.6; transform: scale(1.4); box-shadow: 0 0 16px rgba(212,130,26,0.3); }
+}
+@keyframes floatA {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(212,130,26,0.15); }
+  50%       { box-shadow: 0 0 40px rgba(212,130,26,0.35), 0 0 80px rgba(212,130,26,0.1); }
+}
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(212,130,26,0.15); }
+  50%       { border-color: rgba(212,130,26,0.45); }
+}
+@keyframes rotateIcon {
+  0%   { transform: rotate(0deg) scale(1); }
+  25%  { transform: rotate(-8deg) scale(1.1); }
+  75%  { transform: rotate(8deg) scale(1.1); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+@keyframes particleFloat {
+  0%   { transform: translateY(0px) translateX(0px) scale(1); opacity: var(--op); }
+  25%  { transform: translateY(-18px) translateX(8px) scale(1.2); }
+  50%  { transform: translateY(-30px) translateX(-6px) scale(0.9); opacity: calc(var(--op) * 0.4); }
+  75%  { transform: translateY(-14px) translateX(12px) scale(1.1); }
+  100% { transform: translateY(0px) translateX(0px) scale(1); opacity: var(--op); }
+}
+@keyframes auraPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(1.08); }
+}
+@keyframes scanLine {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Scroll reveal ── */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal-section.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Shimmer on section eyebrow ── */
+.section-eyebrow {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 40%, var(--accent) 60%, var(--accent-light) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* ── Stagger animations on reveal ── */
+.reveal-section.revealed .service-card,
+.reveal-section.revealed .feature-card,
+.reveal-section.revealed .process-card,
+.reveal-section.revealed .testimonial-card,
+.reveal-section.revealed .industry-card,
+.reveal-section.revealed .cert-card,
+.reveal-section.revealed .team-card,
+.reveal-section.revealed .award-card,
+.reveal-section.revealed .timeline-card,
+.reveal-section.revealed .sustain-card,
+.reveal-section.revealed .number-card,
+.reveal-section.revealed .biz-card,
+.reveal-section.revealed .mv-card,
+.reveal-section.revealed .svc-process-step,
+.reveal-section.revealed .svc-feature,
+.reveal-section.revealed .contact-card,
+.reveal-section.revealed .guarantee-card,
+.reveal-section.revealed .quick-card,
+.reveal-section.revealed .svc-quick-card,
+.reveal-section.revealed .fleet-spec-card,
+.reveal-section.revealed .svc-zone-card,
+.reveal-section.revealed .live-stat-card,
+.reveal-section.revealed .cargo-info-card,
+.reveal-section.revealed .cargo-how-step,
+.reveal-section.revealed .cargo-type-card {
+  animation: scaleIn 0.55s ease both;
+}
+
+.reveal-section.revealed .service-card:nth-child(1),
+.reveal-section.revealed .feature-card:nth-child(1),
+.reveal-section.revealed .process-card:nth-child(1),
+.reveal-section.revealed .testimonial-card:nth-child(1),
+.reveal-section.revealed .industry-card:nth-child(1),
+.reveal-section.revealed .cert-card:nth-child(1),
+.reveal-section.revealed .team-card:nth-child(1),
+.reveal-section.revealed .award-card:nth-child(1),
+.reveal-section.revealed .timeline-card:nth-child(1),
+.reveal-section.revealed .sustain-card:nth-child(1),
+.reveal-section.revealed .number-card:nth-child(1),
+.reveal-section.revealed .biz-card:nth-child(1),
+.reveal-section.revealed .mv-card:nth-child(1),
+.reveal-section.revealed .svc-process-step:nth-child(1),
+.reveal-section.revealed .svc-feature:nth-child(1),
+.reveal-section.revealed .contact-card:nth-child(1),
+.reveal-section.revealed .guarantee-card:nth-child(1),
+.reveal-section.revealed .quick-card:nth-child(1),
+.reveal-section.revealed .svc-quick-card:nth-child(1),
+.reveal-section.revealed .fleet-spec-card:nth-child(1),
+.reveal-section.revealed .svc-zone-card:nth-child(1),
+.reveal-section.revealed .live-stat-card:nth-child(1),
+.reveal-section.revealed .cargo-info-card:nth-child(1),
+.reveal-section.revealed .cargo-how-step:nth-child(1),
+.reveal-section.revealed .cargo-type-card:nth-child(1) { animation-delay: 0.05s; }
+
+.reveal-section.revealed .service-card:nth-child(2),
+.reveal-section.revealed .feature-card:nth-child(2),
+.reveal-section.revealed .process-card:nth-child(2),
+.reveal-section.revealed .testimonial-card:nth-child(2),
+.reveal-section.revealed .industry-card:nth-child(2),
+.reveal-section.revealed .cert-card:nth-child(2),
+.reveal-section.revealed .team-card:nth-child(2),
+.reveal-section.revealed .award-card:nth-child(2),
+.reveal-section.revealed .timeline-card:nth-child(2),
+.reveal-section.revealed .sustain-card:nth-child(2),
+.reveal-section.revealed .number-card:nth-child(2),
+.reveal-section.revealed .biz-card:nth-child(2),
+.reveal-section.revealed .mv-card:nth-child(2),
+.reveal-section.revealed .svc-process-step:nth-child(2),
+.reveal-section.revealed .svc-feature:nth-child(2),
+.reveal-section.revealed .contact-card:nth-child(2),
+.reveal-section.revealed .guarantee-card:nth-child(2),
+.reveal-section.revealed .quick-card:nth-child(2),
+.reveal-section.revealed .svc-quick-card:nth-child(2),
+.reveal-section.revealed .fleet-spec-card:nth-child(2),
+.reveal-section.revealed .svc-zone-card:nth-child(2),
+.reveal-section.revealed .live-stat-card:nth-child(2),
+.reveal-section.revealed .cargo-info-card:nth-child(2),
+.reveal-section.revealed .cargo-how-step:nth-child(2),
+.reveal-section.revealed .cargo-type-card:nth-child(2) { animation-delay: 0.12s; }
+
+.reveal-section.revealed .service-card:nth-child(3),
+.reveal-section.revealed .feature-card:nth-child(3),
+.reveal-section.revealed .process-card:nth-child(3),
+.reveal-section.revealed .testimonial-card:nth-child(3),
+.reveal-section.revealed .industry-card:nth-child(3),
+.reveal-section.revealed .cert-card:nth-child(3),
+.reveal-section.revealed .team-card:nth-child(3),
+.reveal-section.revealed .award-card:nth-child(3),
+.reveal-section.revealed .timeline-card:nth-child(3),
+.reveal-section.revealed .sustain-card:nth-child(3),
+.reveal-section.revealed .number-card:nth-child(3),
+.reveal-section.revealed .biz-card:nth-child(3),
+.reveal-section.revealed .mv-card:nth-child(3),
+.reveal-section.revealed .svc-process-step:nth-child(3),
+.reveal-section.revealed .svc-feature:nth-child(3),
+.reveal-section.revealed .contact-card:nth-child(3),
+.reveal-section.revealed .guarantee-card:nth-child(3),
+.reveal-section.revealed .quick-card:nth-child(3),
+.reveal-section.revealed .svc-quick-card:nth-child(3),
+.reveal-section.revealed .fleet-spec-card:nth-child(3),
+.reveal-section.revealed .svc-zone-card:nth-child(3),
+.reveal-section.revealed .live-stat-card:nth-child(3),
+.reveal-section.revealed .cargo-info-card:nth-child(3),
+.reveal-section.revealed .cargo-how-step:nth-child(3),
+.reveal-section.revealed .cargo-type-card:nth-child(3) { animation-delay: 0.19s; }
+
+.reveal-section.revealed .service-card:nth-child(4),
+.reveal-section.revealed .feature-card:nth-child(4),
+.reveal-section.revealed .testimonial-card:nth-child(4),
+.reveal-section.revealed .industry-card:nth-child(4),
+.reveal-section.revealed .cert-card:nth-child(4),
+.reveal-section.revealed .team-card:nth-child(4),
+.reveal-section.revealed .award-card:nth-child(4),
+.reveal-section.revealed .timeline-card:nth-child(4),
+.reveal-section.revealed .sustain-card:nth-child(4),
+.reveal-section.revealed .number-card:nth-child(4),
+.reveal-section.revealed .biz-card:nth-child(4),
+.reveal-section.revealed .svc-process-step:nth-child(4),
+.reveal-section.revealed .guarantee-card:nth-child(4),
+.reveal-section.revealed .quick-card:nth-child(4),
+.reveal-section.revealed .svc-quick-card:nth-child(4),
+.reveal-section.revealed .fleet-spec-card:nth-child(4),
+.reveal-section.revealed .svc-zone-card:nth-child(4),
+.reveal-section.revealed .live-stat-card:nth-child(4),
+.reveal-section.revealed .cargo-info-card:nth-child(4),
+.reveal-section.revealed .cargo-how-step:nth-child(4),
+.reveal-section.revealed .cargo-type-card:nth-child(4) { animation-delay: 0.26s; }
+
+.reveal-section.revealed .service-card:nth-child(5),
+.reveal-section.revealed .industry-card:nth-child(5),
+.reveal-section.revealed .sustain-card:nth-child(5),
+.reveal-section.revealed .biz-card:nth-child(5),
+.reveal-section.revealed .svc-quick-card:nth-child(5),
+.reveal-section.revealed .cargo-type-card:nth-child(5) { animation-delay: 0.33s; }
+
+.reveal-section.revealed .service-card:nth-child(6),
+.reveal-section.revealed .industry-card:nth-child(6),
+.reveal-section.revealed .biz-card:nth-child(6),
+.reveal-section.revealed .svc-quick-card:nth-child(6),
+.reveal-section.revealed .cargo-type-card:nth-child(6) { animation-delay: 0.40s; }
+
+/* ── borderGlow on card types ── */
+.cert-card,
+.team-card,
+.award-card,
+.biz-card {
+  animation: borderGlow 4s ease-in-out infinite;
+}
 

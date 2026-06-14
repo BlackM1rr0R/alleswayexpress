@@ -3,31 +3,301 @@
    Premium Dark UI
    ══════════════════════════════════════════ */
 
-/* ─── LAYOUT ─── */
+@keyframes orbFloat1 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%      { transform: translate(60px,-50px) scale(1.15); }
+  66%      { transform: translate(-40px,35px) scale(0.9); }
+}
+@keyframes orbFloat2 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%      { transform: translate(-70px,40px) scale(1.12); }
+  66%      { transform: translate(50px,-60px) scale(0.88); }
+}
+@keyframes orbFloat3 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%      { transform: translate(35px,55px) scale(1.18); }
+}
+@keyframes gridPan {
+  0%   { background-position: 0 0; }
+  100% { background-position: 68px 68px; }
+}
+@keyframes scanContact {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { transform: translateY(200%); opacity: 0; }
+}
+@keyframes inputGlow {
+  0%,100% { box-shadow: 0 0 0 0 rgba(212,130,26,0); }
+  50%      { box-shadow: 0 0 20px 4px rgba(212,130,26,0.15); }
+}
+@keyframes cardFloat {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes diagMove {
+  0%   { background-position: 0 0; }
+  100% { background-position: 80px 80px; }
+}
+@keyframes radialPulse {
+  0%,100% { opacity: 0.5; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.2); }
+}
+@keyframes waveShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes noiseShift {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(39px); }
+}
+@keyframes auroraRotate {
+  0%   { transform: rotate(0deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1.2); }
+}
+@keyframes beamSweep {
+  0%   { transform: translateX(-100%) skewX(-15deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateX(200%) skewX(-15deg); opacity: 0; }
+}
+
+/* ─── PAGE BACKGROUND ─── */
+.contact-page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.contact-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.7;
+}
+.contact-orb-1 {
+  width: 600px; height: 600px;
+  top: -150px; right: -150px;
+  background: radial-gradient(circle, rgba(212,130,26,0.22) 0%, transparent 70%);
+  animation: orbFloat1 6s ease-in-out infinite;
+}
+.contact-orb-2 {
+  width: 500px; height: 500px;
+  bottom: 5%; left: -100px;
+  background: radial-gradient(circle, rgba(59,130,246,0.14) 0%, transparent 70%);
+  animation: orbFloat2 8s ease-in-out infinite;
+}
+.contact-orb-3 {
+  width: 350px; height: 350px;
+  top: 35%; left: 38%;
+  background: radial-gradient(circle, rgba(168,85,247,0.1) 0%, transparent 70%);
+  animation: orbFloat3 5s ease-in-out infinite;
+}
+.contact-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 68px 68px;
+  animation: gridPan 5s linear infinite;
+}
+.contact-scan-line {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(212,130,26,0.5), transparent);
+  filter: blur(1px);
+  animation: scanContact 4s ease-in-out infinite;
+}
+
+/* ─── PER-SECTION ANIMATED BACKGROUNDS ─── */
+
+/* Quick section — gold beam sweep */
+.quick-section {
+  position: relative;
+  overflow: hidden;
+}
+.quick-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 15% 50%, rgba(212,130,26,0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 70% at 85% 40%, rgba(212,130,26,0.08) 0%, transparent 65%);
+  animation: radialPulse 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.quick-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(45deg, rgba(212,130,26,0.05) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(212,130,26,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: diagMove 3s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.quick-section > * { position: relative; z-index: 1; }
+
+/* Guarantees — rotating aurora */
+.guarantees-section {
+  position: relative;
+  overflow: hidden;
+}
+.guarantees-section::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(212,130,26,0.08) 0deg,
+    rgba(59,130,246,0.06) 90deg,
+    rgba(212,130,26,0.04) 180deg,
+    rgba(168,85,247,0.05) 270deg,
+    rgba(212,130,26,0.08) 360deg
+  );
+  animation: auroraRotate 6s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.guarantees-section::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--bg), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+.guarantees-section > * { position: relative; z-index: 2; }
+
+/* Contact form — grid + pulse */
 .contact-section {
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 .contact-section::before {
   content: '';
   position: absolute;
-  top: -200px;
-  right: -200px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(212,130,26,0.05) 0%, transparent 65%);
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 0%, rgba(212,130,26,0.09) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 100% 100%, rgba(59,130,246,0.06) 0%, transparent 55%);
+  animation: radialPulse 3.5s ease-in-out infinite;
   pointer-events: none;
+  z-index: 0;
 }
 .contact-section::after {
   content: '';
   position: absolute;
-  bottom: -250px;
-  left: -150px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 65%);
+  inset: -20px;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: gridPan 4s linear infinite;
   pointer-events: none;
+  z-index: 0;
 }
+.contact-section > * { position: relative; z-index: 1; }
+
+/* FAQ — beam sweep */
+.faq-section-contact {
+  position: relative;
+  overflow: hidden;
+}
+.faq-section-contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 90% at 100% 50%, rgba(168,85,247,0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 0% 50%, rgba(212,130,26,0.08) 0%, transparent 60%);
+  animation: orbFloat2 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.faq-section-contact::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  background: linear-gradient(90deg, transparent, rgba(212,130,26,0.12), transparent);
+  animation: beamSweep 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.faq-section-contact > * { position: relative; z-index: 1; }
+
+/* Hours — horizontal scan lines */
+.hours-section {
+  position: relative;
+  overflow: hidden;
+}
+.hours-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(212,130,26,0.1) 0%, transparent 65%);
+  animation: radialPulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.hours-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 38px,
+    rgba(212,130,26,0.04) 38px,
+    rgba(212,130,26,0.04) 39px
+  );
+  animation: noiseShift 1.5s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.hours-section > * { position: relative; z-index: 1; }
+
+/* Social — fast aurora */
+.contact-social-section {
+  position: relative;
+  overflow: hidden;
+}
+.contact-social-section::before {
+  content: '';
+  position: absolute;
+  inset: -30%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(212,130,26,0.1) 0deg,
+    rgba(59,130,246,0.08) 72deg,
+    rgba(168,85,247,0.07) 144deg,
+    rgba(34,197,94,0.05) 216deg,
+    rgba(212,130,26,0.1) 288deg,
+    rgba(212,130,26,0.1) 360deg
+  );
+  animation: auroraRotate 4s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.contact-social-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10,12,16,0.55);
+  pointer-events: none;
+  z-index: 0;
+}
+.contact-social-section > * { position: relative; z-index: 1; }
 
 .contact-grid {
   display: grid;
@@ -232,6 +502,7 @@
   box-shadow:
     0 0 0 3px rgba(212,130,26,0.08),
     0 2px 8px rgba(0,0,0,0.1);
+  animation: inputGlow 2s ease-in-out infinite;
 }
 
 .form-textarea {
@@ -337,24 +608,156 @@
 /* ══════════════════════════════════════════
    MAP
    ══════════════════════════════════════════ */
-.contact-map {
+@keyframes mapPinBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  40%       { transform: translateY(-10px) scale(1.1); }
+  60%       { transform: translateY(-6px) scale(1.05); }
+}
+@keyframes mapPinRipple {
+  0%   { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+
+.contact-map-wrap {
   margin-top: 64px;
-  width: 100%;
-  height: 350px;
-  border-radius: 20px;
+  position: relative;
+  border-radius: 24px;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(212,130,26,0.2);
+  box-shadow: 0 0 0 1px rgba(212,130,26,0.06), 0 24px 60px rgba(0,0,0,0.4);
+}
+
+.contact-map {
+  width: 100%;
+  height: 420px;
   position: relative;
 }
 
 .contact-map iframe {
   display: block;
-  filter: brightness(0.85) contrast(1.1) saturate(0.8);
-  transition: filter 0.3s;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.75) contrast(1.15) saturate(0.6) hue-rotate(10deg);
+  transition: filter 0.4s;
+}
+.contact-map-wrap:hover iframe {
+  filter: brightness(0.85) contrast(1.1) saturate(0.75);
 }
 
-.contact-map:hover iframe {
-  filter: brightness(0.9) contrast(1.05) saturate(0.9);
+/* top gradient overlay */
+.contact-map::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10,12,16,0.35) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(10,12,16,0.5) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* accent corner glow */
+.contact-map::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  z-index: 2;
+}
+
+/* info card overlay */
+.contact-map-card {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(10,12,16,0.88);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212,130,26,0.25);
+  border-radius: 16px;
+  padding: 18px 22px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 240px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+.contact-map-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.2px;
+}
+.contact-map-card-addr {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+}
+.contact-map-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(212,130,26,0.1);
+  border: 1px solid rgba(212,130,26,0.2);
+  border-radius: 100px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  width: fit-content;
+}
+.contact-map-card-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px rgba(34,197,94,0.6);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* pin */
+.contact-map-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+.contact-map-pin-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--accent);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(212,130,26,0.5);
+  animation: mapPinBounce 3s ease-in-out infinite;
+}
+.contact-map-pin-icon svg {
+  transform: rotate(45deg);
+}
+.contact-map-pin-ripple {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -7px;
+  animation: mapPinRipple 2s ease-out infinite;
+}
+.contact-map-pin-ripple2 {
+  animation-delay: 0.8s;
 }
 
 
@@ -752,7 +1155,10 @@
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
+  animation: cardFloat 6s ease-in-out infinite;
 }
+.quick-card:nth-child(2) { animation-delay: -2s; }
+.quick-card:nth-child(3) { animation-delay: -4s; }
 .quick-card::before {
   content: '';
   position: absolute;
@@ -844,7 +1250,11 @@
   text-align: center;
   transition: all 0.3s;
   cursor: default;
+  animation: borderGlow 5s ease-in-out infinite;
 }
+.guarantee-card:nth-child(2) { animation-delay: -1.25s; }
+.guarantee-card:nth-child(3) { animation-delay: -2.5s; }
+.guarantee-card:nth-child(4) { animation-delay: -3.75s; }
 .guarantee-card:hover {
   border-color: rgba(212,130,26,0.14);
   transform: translateY(-3px);

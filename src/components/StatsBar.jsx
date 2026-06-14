@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import T from "../i18n";
-import back1 from "../assets/back1.jpeg";
+import back1 from "../assets/new5.jpeg";
 import back2 from "../assets/back2.jpeg";
 import back3 from "../assets/back3.jpeg";
 import back4 from "../assets/back4.jpeg";
