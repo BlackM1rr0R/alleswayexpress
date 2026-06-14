@@ -159,9 +159,6 @@ function HomePage({ setPage, lang = "de" }) {
                 {i < 2 && <div className="process-connector" />}
                 <div className="process-photo-wrap">
                   <img src={PROCESS_PHOTOS[i]} alt={p.title} className="process-photo" />
-                  <div className={`process-num process-num--${PROCESS_COLORS[i]}`}>
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
                 </div>
                 <div className="process-body">
                   <div className={`process-icon-wrap process-icon-wrap--${PROCESS_COLORS[i]}`}>
