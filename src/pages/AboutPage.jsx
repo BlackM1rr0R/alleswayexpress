@@ -152,7 +152,6 @@ function AboutPage({ setPage, lang = "de" }) {
                     <img src={VALUE_IMAGES[i]} alt={v.title} className="value-img" />
                   </div>
                 )}
-                <div className="feature-icon-wrap">{VALUE_ICONS[i]}</div>
                 <h3>{v.title}</h3>
                 <p>{v.desc}</p>
               </div>

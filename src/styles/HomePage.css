@@ -658,13 +658,12 @@
   transition: transform 0.45s ease;
 }
 .feature-card:hover .value-img { transform: scale(1.05); }
-.feature-icon-wrap,
 .feature-card h3,
 .feature-card p {
   position: relative;
   z-index: 1;
 }
-.feature-card .feature-icon-wrap { margin-top: 28px; }
+.feature-card h3 { margin-top: 22px; }
 .feature-card::before {
   content: '';
   position: absolute;
