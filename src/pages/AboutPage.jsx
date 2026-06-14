@@ -15,7 +15,7 @@ import dekraImg from "../assets/dekra.png";
 import hereMapsImg from "../assets/kamyon9.jpeg";
 import "../styles/About.css";
 
-const CERT_IMAGES = [sekil1, sekil2, sekil3, sekil4];
+const CERT_IMAGES = [sekil4, sekil1, sekil2, sekil3];
 
 const BIZ_IMAGES = {
   "Mercedes-Benz": mercedesImg,
