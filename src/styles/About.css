@@ -611,8 +611,8 @@
   justify-content: center;
 }
 .biz-partner-img {
-  width: 110px;
-  height: 70px;
+  width: 150px;
+  height: 95px;
   object-fit: contain;
   filter: grayscale(30%) brightness(1.1);
   border-radius: 6px;
