@@ -2,7 +2,7 @@ const T = {
   de: {
     /* ── StatsBar ── */
     stats: [
-      { num: "85+",   label: "Fahrzeuge aktiv" },
+      { num: "500+",   label: "Fahrzeuge aktiv" },
       { num: "200+",  label: "Städte abgedeckt" },
       { num: "24h",   label: "Lieferzeit DE-weit" },
       { num: "99,7%", label: "Pünktlichkeitsrate" },
@@ -21,7 +21,7 @@ const T = {
 
     /* ── Footer ── */
     footer: {
-      tagline: "Ihr zuverlässiger Partner für Transporte und Logistik in ganz Deutschland. Schnell, sicher und professionell — seit 2018.",
+      tagline: "Ihr zuverlässiger Partner für Transporte und Logistik in ganz Deutschland. Schnell, sicher und professionell — seit 2025.",
       nav_title: "Navigation",
       svc_title: "Leistungen",
       cnt_title: "Kontakt",
@@ -61,7 +61,7 @@ const T = {
 
       fleet_eyebrow:   "Unsere Flotte",
       fleet_title:     "Modernste Fahrzeuge für jeden Einsatz",
-      fleet_subtitle:  "Von wendigen Sprinter-Vans bis zu schweren 40-Tonnern — unsere 85+ Fahrzeuge sind immer einsatzbereit.",
+      fleet_subtitle:  "Von wendigen Sprinter-Vans bis zu schweren 40-Tonnern — unsere 500+ Fahrzeuge sind immer einsatzbereit.",
       fleet_labels: ["LKW — Mercedes Atego", "Sprinter-Service", "Schwertransport — Actros", "Sprinter-Flotte", "Atego-Fuhrpark", "Fernverkehr & Spedition"],
 
       svc_eyebrow:   "Unsere Leistungen",
@@ -81,7 +81,7 @@ const T = {
       why_title:     "Allesway Express — der Unterschied",
       why_subtitle:  "Langjährige Erfahrung, professionelles Team und modernste Technik für Ihre Logistik.",
       why_cards: [
-        { title: "85+ Fahrzeuge",    desc: "Unser Fuhrpark umfasst LKW, Sprinter und Spezialfahrzeuge für jeden Einsatz." },
+        { title: "500+ Fahrzeuge",    desc: "Unser Fuhrpark umfasst LKW, Sprinter und Spezialfahrzeuge für jeden Einsatz." },
         { title: "Vollversicherung", desc: "Alle Transporte sind vollständig versichert — für Ihre absolute Sicherheit." },
         { title: "Pünktlichkeit",    desc: "99,7% pünktliche Zustellrate — Zuverlässigkeit, auf die Sie zählen können." },
         { title: "Erfahrenes Team",  desc: "Geschulte Fahrer und Logistikexperten mit über 15 Jahren Branchenerfahrung." },
@@ -94,7 +94,7 @@ const T = {
         { num: "200+", label: "Städte abgedeckt" },
         { num: "16",   label: "Bundesländer" },
         { num: "24h",  label: "Deutschlandweit" },
-        { num: "85+",  label: "Fahrzeuge aktiv" },
+        { num: "500+",  label: "Fahrzeuge aktiv" },
       ],
 
       partners_label: "Vertrauen von führenden Unternehmen in Deutschland",
@@ -156,7 +156,7 @@ const T = {
       network_stats: [
         { num: "200+", label: "Städte aktiv" },
         { num: "16",   label: "Bundesländer" },
-        { num: "85+",  label: "Fahrzeuge" },
+        { num: "500+",  label: "Fahrzeuge" },
         { num: "24/7", label: "Betrieb" },
       ],
     },
@@ -181,7 +181,7 @@ const T = {
 
       fleet_eyebrow:  "Unser Fuhrpark",
       fleet_title:    "Das richtige Fahrzeug für jeden Auftrag",
-      fleet_subtitle: "85+ moderne, GPS-überwachte Fahrzeuge — vollversichert und immer einsatzbereit.",
+      fleet_subtitle: "500+ moderne, GPS-überwachte Fahrzeuge — vollversichert und immer einsatzbereit.",
       fleet_cards: [
         { icon: "🚐", name: "Mercedes Sprinter", cap: "1,5 t", vol: "10 m³", range: "Lokal & Regional", color: "gold",  specs: ["Bis 1.500 kg Nutzlast", "10 m³ Laderaum", "Hebebühne auf Anfrage", "Same-Day Zustellung"] },
         { icon: "🚛", name: "LKW 7,5 t",         cap: "5 t",   vol: "35 m³", range: "Regional & DE",   color: "blue",  specs: ["Bis 5.000 kg Nutzlast", "35 m³ Laderaum", "Koffer- & Planenaufbau", "24h Lieferzeit DE"] },
@@ -292,19 +292,19 @@ const T = {
 
     /* ── AboutPage ── */
     about: {
-      intro_h2:   "Seit 2018 Ihr Partner für zuverlässige Transporte in ganz Deutschland",
-      intro_p1:   "Allesway Express wurde in Wörth am Rhein gegründet und hat sich schnell zu einem der führenden regionalen Transportunternehmen entwickelt. Mit über 85 Fahrzeugen — darunter moderne LKW und Sprinter — bedienen wir Kunden in allen 16 Bundesländern.",
+      intro_h2:   "Ihr Partner für zuverlässige Transporte in ganz Deutschland",
+      intro_p1:   "Allesway Express wurde in Wörth am Rhein gegründet und hat sich schnell zu einem der führenden regionalen Transportunternehmen entwickelt. Mit über 500 Fahrzeugen — darunter moderne LKW und Sprinter — bedienen wir Kunden in allen 16 Bundesländern.",
       intro_p2:   "Unser Erfolgsrezept: Zuverlässigkeit, Transparenz und ein persönlicher Ansprechpartner für jeden Kunden. Wir verstehen, dass hinter jeder Sendung ein wichtiger Auftrag steht — und behandeln ihn entsprechend.",
-      features:   ["8+ Jahre Erfahrung","85+ LKW & Sprinter","150+ Mitarbeiter","200+ Städte abgedeckt","ISO 9001 zertifiziert","24/7 Kundenservice","Standort Wörth am Rhein","Vollversicherung inklusive"],
+      features:   ["Gegründet 2025","500+ LKW & Sprinter","1000+ Mitarbeiter","200+ Städte abgedeckt","ISO 9001 zertifiziert","24/7 Kundenservice","Standort Wörth am Rhein","Vollversicherung inklusive"],
       contact_btn: "Kontakt aufnehmen",
 
       timeline_eyebrow: "Unsere Geschichte",
       timeline_title:   "Von Wörth am Rhein in ganz Deutschland",
       timeline: [
-        { year: "2018", title: "Gründung",          desc: "Allesway Express wird in Wörth am Rhein mit 5 Sprinter-Fahrzeugen gegründet." },
+        { year: "2025", title: "Gründung",          desc: "Allesway Express wird in Wörth am Rhein mit einer modernen Flotte gegründet." },
         { year: "2020", title: "Expansion",          desc: "Erweiterung der Flotte auf 30 Fahrzeuge. Erste LKW im Einsatz für Schwertransporte." },
         { year: "2022", title: "ISO-Zertifizierung", desc: "Zertifizierung nach ISO 9001. Eröffnung des neuen Logistikzentrums in Wörth." },
-        { year: "2025", title: "Marktführer",        desc: "85+ Fahrzeuge, 150+ Mitarbeiter und Zustellungen in über 200 Städten deutschlandweit." },
+        { year: "2025", title: "Marktführer",        desc: "500+ Fahrzeuge, 1000+ Mitarbeiter und Zustellungen in über 200 Städten deutschlandweit." },
       ],
 
       team_eyebrow:  "Unser Team",
@@ -312,7 +312,7 @@ const T = {
       team_subtitle: "Erfahrene Fachleute mit Leidenschaft für Logistik und Kundenservice.",
       team: [
         { initials: "KM", name: "Kamil M.", role: "Geschäftsführer & Gründer",   desc: "Gründer von Allesway Express. Über 15 Jahre Erfahrung in der Transportbranche.", color: "gold" },
-        { initials: "AH", name: "Andreas H.", role: "Flottenmanager",             desc: "Verantwortlich für unsere 85+ Fahrzeuge und die tägliche Einsatzplanung aller Fahrer.", color: "blue" },
+        { initials: "AH", name: "Andreas H.", role: "Flottenmanager",             desc: "Verantwortlich für unsere 500+ Fahrzeuge und die tägliche Einsatzplanung aller Fahrer.", color: "blue" },
         { initials: "SR", name: "Sandra R.", role: "Logistikmanagerin",           desc: "Koordiniert deutschlandweite Routen, optimiert Lieferprozesse und ist Ansprechpartnerin für alle Großkunden.", color: "green" },
         { initials: "JB", name: "Jonas B.", role: "Kundenservice",                desc: "Ihr direkter Ansprechpartner für alle Fragen rund um Ihre Sendungen — schnell, freundlich und kompetent.", color: "purple" },
       ],
@@ -350,10 +350,10 @@ const T = {
       mv_vision_label:  "Unsere Vision",
       mv_vision:        "Allesway Express wird Deutschlands führendes digitales Transportunternehmen — nachhaltig, innovativ und nah am Kunden.",
       mv_pillars: [
-        { num: "8+",    label: "Jahre Erfahrung" },
-        { num: "85+",   label: "Fahrzeuge aktiv" },
+        { num: "2025",    label: "Gründungsjahr" },
+        { num: "500+",   label: "Fahrzeuge aktiv" },
         { num: "99,7%", label: "Pünktlichkeit" },
-        { num: "150+",  label: "Mitarbeiter" },
+        { num: "1000+",  label: "Mitarbeiter" },
       ],
 
       awards_eyebrow:  "Auszeichnungen",
@@ -391,12 +391,12 @@ const T = {
       numbers_eyebrow:  "Allesway in Zahlen",
       numbers_title:    "Fakten die überzeugen",
       numbers: [
-        { num: "85+",    label: "Fahrzeuge",                  desc: "Sprinter, 7,5t & 40t Actros" },
+        { num: "500+",    label: "Fahrzeuge",                  desc: "Sprinter, 7,5t & 40t Actros" },
         { num: "200+",   label: "Städte abgedeckt",           desc: "In allen 16 Bundesländern" },
-        { num: "150+",   label: "Mitarbeiter",                desc: "Fahrer, Disponenten & Team" },
+        { num: "1000+",   label: "Mitarbeiter",                desc: "Fahrer, Disponenten & Team" },
         { num: "99,7%",  label: "Pünktlichkeitsrate",         desc: "Messbar und belegt" },
-        { num: "50.000+",label: "Lieferungen pro Jahr",       desc: "Zuverlässig und termingerecht" },
-        { num: "8+",     label: "Jahre Erfahrung",            desc: "Seit 2018 aktiv" },
+        { num: "100.000+",label: "Lieferungen pro Jahr",       desc: "Zuverlässig und termingerecht" },
+        { num: "2025",     label: "Gründungsjahr",            desc: "Gegründet 2025" },
       ],
     },
 
@@ -513,7 +513,7 @@ const T = {
   ════════════════════════════════════════ */
   en: {
     stats: [
-      { num: "85+",   label: "Active vehicles" },
+      { num: "500+",   label: "Active vehicles" },
       { num: "200+",  label: "Cities covered" },
       { num: "24h",   label: "Delivery across DE" },
       { num: "99.7%", label: "On-time rate" },
@@ -529,7 +529,7 @@ const T = {
     },
 
     footer: {
-      tagline: "Your reliable partner for transport and logistics throughout Germany. Fast, secure and professional — since 2018.",
+      tagline: "Your reliable partner for transport and logistics throughout Germany. Fast, secure and professional — since 2025.",
       nav_title: "Navigation",
       svc_title: "Services",
       cnt_title: "Contact",
@@ -568,7 +568,7 @@ const T = {
 
       fleet_eyebrow:   "Our Fleet",
       fleet_title:     "State-of-the-art vehicles for every need",
-      fleet_subtitle:  "From agile Sprinter vans to heavy 40-tonners — our 85+ vehicles are always ready to go.",
+      fleet_subtitle:  "From agile Sprinter vans to heavy 40-tonners — our 500+ vehicles are always ready to go.",
       fleet_labels: ["Truck — Mercedes Atego", "Sprinter Service", "Heavy Transport — Actros", "Sprinter Fleet", "Atego Fleet", "Long-distance & Freight"],
 
       svc_eyebrow:   "Our Services",
@@ -588,7 +588,7 @@ const T = {
       why_title:     "Allesway Express — the difference",
       why_subtitle:  "Years of experience, a professional team and the latest technology for your logistics.",
       why_cards: [
-        { title: "85+ vehicles",      desc: "Our fleet includes trucks, sprinters and special vehicles for every task." },
+        { title: "500+ vehicles",      desc: "Our fleet includes trucks, sprinters and special vehicles for every task." },
         { title: "Full insurance",    desc: "All transports are fully insured — for your absolute safety." },
         { title: "Punctuality",       desc: "99.7% on-time delivery rate — reliability you can count on." },
         { title: "Experienced team",  desc: "Trained drivers and logistics experts with over 15 years of industry experience." },
@@ -601,7 +601,7 @@ const T = {
         { num: "200+", label: "Cities covered" },
         { num: "16",   label: "Federal states" },
         { num: "24h",  label: "Nationwide" },
-        { num: "85+",  label: "Active vehicles" },
+        { num: "500+",  label: "Active vehicles" },
       ],
 
       partners_label: "Trusted by leading companies in Germany",
@@ -663,7 +663,7 @@ const T = {
       network_stats: [
         { num: "200+", label: "Cities active" },
         { num: "16",   label: "Federal states" },
-        { num: "85+",  label: "Vehicles" },
+        { num: "500+",  label: "Vehicles" },
         { num: "24/7", label: "Operations" },
       ],
     },
@@ -687,7 +687,7 @@ const T = {
 
       fleet_eyebrow:  "Our Fleet",
       fleet_title:    "The right vehicle for every job",
-      fleet_subtitle: "85+ modern GPS-monitored vehicles — fully insured and always ready to go.",
+      fleet_subtitle: "500+ modern GPS-monitored vehicles — fully insured and always ready to go.",
       fleet_cards: [
         { icon: "🚐", name: "Mercedes Sprinter", cap: "1.5 t", vol: "10 m³", range: "Local & Regional", color: "gold",  specs: ["Up to 1,500 kg payload", "10 m³ cargo space", "Tail lift on request", "Same-day delivery"] },
         { icon: "🚛", name: "Truck 7.5 t",       cap: "5 t",   vol: "35 m³", range: "Regional & DE",   color: "blue",  specs: ["Up to 5,000 kg payload", "35 m³ cargo space", "Box and curtain body", "24h delivery DE"] },
@@ -796,19 +796,19 @@ const T = {
     },
 
     about: {
-      intro_h2:   "Your partner for reliable transport across Germany since 2018",
-      intro_p1:   "Allesway Express was founded in Wörth am Rhein and quickly became one of the leading regional transport companies. With over 85 vehicles — including modern trucks and sprinters — we serve customers in all 16 federal states.",
+      intro_h2:   "Your reliable partner for transport across Germany",
+      intro_p1:   "Allesway Express was founded in Wörth am Rhein and quickly became one of the leading regional transport companies. With over 500 vehicles — including modern trucks and sprinters — we serve customers in all 16 federal states.",
       intro_p2:   "Our recipe for success: reliability, transparency and a personal contact for every customer. We understand that every shipment represents an important order — and we treat it accordingly.",
-      features:   ["8+ years experience","85+ trucks & sprinters","150+ employees","200+ cities covered","ISO 9001 certified","24/7 customer service","Located in Wörth am Rhein","Full insurance included"],
+      features:   ["Founded 2025","500+ trucks & sprinters","1000+ employees","200+ cities covered","ISO 9001 certified","24/7 customer service","Located in Wörth am Rhein","Full insurance included"],
       contact_btn: "Get in touch",
 
       timeline_eyebrow: "Our history",
       timeline_title:   "From Wörth am Rhein to all of Germany",
       timeline: [
-        { year: "2018", title: "Founded",           desc: "Allesway Express is founded in Wörth am Rhein with 5 sprinter vehicles." },
+        { year: "2025", title: "Founded",           desc: "Allesway Express is founded in Wörth am Rhein with a modern fleet and clear vision." },
         { year: "2020", title: "Expansion",          desc: "Fleet expanded to 30 vehicles. First trucks deployed for heavy transport." },
         { year: "2022", title: "ISO Certification",  desc: "ISO 9001 certification achieved. New logistics centre opened in Wörth." },
-        { year: "2025", title: "Market leader",      desc: "85+ vehicles, 150+ employees and deliveries to over 200 cities nationwide." },
+        { year: "2025", title: "Market leader",      desc: "500+ vehicles, 1000+ employees and deliveries to over 200 cities nationwide." },
       ],
 
       team_eyebrow:  "Our team",
@@ -816,7 +816,7 @@ const T = {
       team_subtitle: "Experienced professionals with a passion for logistics and customer service.",
       team: [
         { initials: "KM", name: "Kamil M.", role: "CEO & Founder",           desc: "Founder of Allesway Express. Over 15 years of experience in the transport industry.", color: "gold" },
-        { initials: "AH", name: "Andreas H.", role: "Fleet Manager",         desc: "Responsible for our 85+ vehicles and the daily deployment planning of all drivers.", color: "blue" },
+        { initials: "AH", name: "Andreas H.", role: "Fleet Manager",         desc: "Responsible for our 500+ vehicles and the daily deployment planning of all drivers.", color: "blue" },
         { initials: "SR", name: "Sandra R.", role: "Logistics Manager",      desc: "Coordinates nationwide routes, optimises delivery processes and is contact for all major clients.", color: "green" },
         { initials: "JB", name: "Jonas B.", role: "Customer Service",        desc: "Your direct contact for all questions about your shipments — fast, friendly and competent.", color: "purple" },
       ],
@@ -854,10 +854,10 @@ const T = {
       mv_vision_label:  "Our Vision",
       mv_vision:        "Allesway Express will become Germany's leading digital transport company — sustainable, innovative and always close to the customer.",
       mv_pillars: [
-        { num: "8+",     label: "Years experience" },
-        { num: "85+",    label: "Active vehicles" },
+        { num: "2025",     label: "Years experience" },
+        { num: "500+",    label: "Active vehicles" },
         { num: "99.7%",  label: "On-time rate" },
-        { num: "150+",   label: "Employees" },
+        { num: "1000+",   label: "Employees" },
       ],
 
       awards_eyebrow:  "Awards",
@@ -895,12 +895,12 @@ const T = {
       numbers_eyebrow:  "Allesway in numbers",
       numbers_title:    "Facts that convince",
       numbers: [
-        { num: "85+",     label: "Vehicles",             desc: "Sprinters, 7.5t & 40t Actros" },
+        { num: "500+",     label: "Vehicles",             desc: "Sprinters, 7.5t & 40t Actros" },
         { num: "200+",    label: "Cities covered",       desc: "Across all 16 federal states" },
-        { num: "150+",    label: "Employees",            desc: "Drivers, dispatchers & team" },
+        { num: "1000+",    label: "Employees",            desc: "Drivers, dispatchers & team" },
         { num: "99.7%",   label: "On-time rate",         desc: "Measured and verified" },
-        { num: "50,000+", label: "Deliveries per year",  desc: "Reliable and on schedule" },
-        { num: "8+",      label: "Years' experience",    desc: "Active since 2018" },
+        { num: "100,000+", label: "Deliveries per year",  desc: "Reliable and on schedule" },
+        { num: "2025",      label: "Founded",    desc: "Founded 2025" },
       ],
     },
 

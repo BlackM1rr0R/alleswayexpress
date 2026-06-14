@@ -14,9 +14,9 @@ import kamyon1 from "../assets/kamyon1.jpeg";
 import "../styles/HomePage.css";
 
 const VEHICLES = [
-  { name: "Sprinter", base: 49,  rate: 0.75, icon: "🚐" },
-  { name: "LKW 7,5t", base: 89,  rate: 1.35, icon: "🚛" },
-  { name: "LKW 40t",  base: 149, rate: 2.1,  icon: "🚚" },
+  { name: "Sprinter", base: 50,  rate: 1.2, icon: "🚐" },
+  { name: "LKW 7,5t", base: 50,  rate: 2.0, icon: "🚛" },
+  { name: "LKW 40t",  base: 100, rate: 2.4, icon: "🚚" },
 ];
 
 const SVC_ICONS = [
