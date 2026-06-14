@@ -6,12 +6,18 @@ import aboutImg from "../assets/kamyon5.jpeg";
 import mercedesImg from "../assets/mercedes.jpeg";
 import dhlImg from "../assets/dhl.jpeg";
 import ihkImg from "../assets/ihk.jpeg";
+import boschImg from "../assets/bosch.png";
+import dekraImg from "../assets/dekra.png";
+import hereMapsImg from "../assets/kamyon9.jpeg";
 import "../styles/About.css";
 
 const BIZ_IMAGES = {
   "Mercedes-Benz": mercedesImg,
   "DHL": dhlImg,
   "IHK Karlsruhe": ihkImg,
+  "Bosch": boschImg,
+  "DEKRA": dekraImg,
+  "HERE Maps": hereMapsImg,
 };
 
 const VALUE_ICONS = [
