@@ -1501,6 +1501,7 @@
   aspect-ratio: 16 / 9;
   overflow: hidden;
   flex-shrink: 0;
+  border-radius: 20px 20px 0 0;
 }
 .process-photo {
   width: 100%;
