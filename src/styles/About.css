@@ -326,16 +326,15 @@
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 18px 18px 0 0;
-  background: linear-gradient(135deg, #0a0c10 0%, #1a1200 40%, #2a1f00 60%, #0a0c10 100%);
+  background: transparent;
 }
 .cert-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   transition: transform 0.45s ease;
   display: block;
-  padding: 10px;
 }
 .cert-card:hover .cert-img { transform: scale(1.04); }
 .cert-label {
