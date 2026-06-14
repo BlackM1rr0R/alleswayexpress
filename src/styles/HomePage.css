@@ -647,17 +647,19 @@
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 20px 20px 0 0;
+  background: #0a0c10;
   flex-shrink: 0;
 }
 .value-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   display: block;
   transition: transform 0.45s ease;
+  padding: 8px;
 }
-.feature-card:hover .value-img { transform: scale(1.05); }
+.feature-card:hover .value-img { transform: scale(1.04); }
 .feature-card h3,
 .feature-card p {
   position: relative;
