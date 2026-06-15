@@ -429,7 +429,20 @@ button {
 .reveal-section.revealed .live-stat-card,
 .reveal-section.revealed .cargo-info-card,
 .reveal-section.revealed .cargo-how-step,
-.reveal-section.revealed .cargo-type-card {
+.reveal-section.revealed .cargo-type-card,
+.reveal-section.revealed .flotte-stat-card,
+.reveal-section.revealed .flotte-vehicle-card,
+.reveal-section.revealed .flotte-tech-card,
+.reveal-section.revealed .flotte-why-card,
+.reveal-section.revealed .flotte-location-card,
+.reveal-section.revealed .flotte-maint-card,
+.reveal-section.revealed .nachh-stat-card,
+.reveal-section.revealed .nachh-measure-card,
+.reveal-section.revealed .nachh-cert-card,
+.reveal-section.revealed .karriere-benefit-card,
+.reveal-section.revealed .karriere-job-card,
+.reveal-section.revealed .karriere-step-card,
+.reveal-section.revealed .faq-category-block {
   animation: scaleIn 0.55s ease both;
 }
 
@@ -457,7 +470,20 @@ button {
 .reveal-section.revealed .live-stat-card:nth-child(1),
 .reveal-section.revealed .cargo-info-card:nth-child(1),
 .reveal-section.revealed .cargo-how-step:nth-child(1),
-.reveal-section.revealed .cargo-type-card:nth-child(1) { animation-delay: 0.05s; }
+.reveal-section.revealed .cargo-type-card:nth-child(1),
+.reveal-section.revealed .flotte-stat-card:nth-child(1),
+.reveal-section.revealed .flotte-vehicle-card:nth-child(1),
+.reveal-section.revealed .flotte-tech-card:nth-child(1),
+.reveal-section.revealed .flotte-why-card:nth-child(1),
+.reveal-section.revealed .flotte-location-card:nth-child(1),
+.reveal-section.revealed .flotte-maint-card:nth-child(1),
+.reveal-section.revealed .nachh-stat-card:nth-child(1),
+.reveal-section.revealed .nachh-measure-card:nth-child(1),
+.reveal-section.revealed .nachh-cert-card:nth-child(1),
+.reveal-section.revealed .karriere-benefit-card:nth-child(1),
+.reveal-section.revealed .karriere-job-card:nth-child(1),
+.reveal-section.revealed .karriere-step-card:nth-child(1),
+.reveal-section.revealed .faq-category-block:nth-child(1) { animation-delay: 0.05s; }
 
 .reveal-section.revealed .service-card:nth-child(2),
 .reveal-section.revealed .feature-card:nth-child(2),
@@ -483,7 +509,20 @@ button {
 .reveal-section.revealed .live-stat-card:nth-child(2),
 .reveal-section.revealed .cargo-info-card:nth-child(2),
 .reveal-section.revealed .cargo-how-step:nth-child(2),
-.reveal-section.revealed .cargo-type-card:nth-child(2) { animation-delay: 0.12s; }
+.reveal-section.revealed .cargo-type-card:nth-child(2),
+.reveal-section.revealed .flotte-stat-card:nth-child(2),
+.reveal-section.revealed .flotte-vehicle-card:nth-child(2),
+.reveal-section.revealed .flotte-tech-card:nth-child(2),
+.reveal-section.revealed .flotte-why-card:nth-child(2),
+.reveal-section.revealed .flotte-location-card:nth-child(2),
+.reveal-section.revealed .flotte-maint-card:nth-child(2),
+.reveal-section.revealed .nachh-stat-card:nth-child(2),
+.reveal-section.revealed .nachh-measure-card:nth-child(2),
+.reveal-section.revealed .nachh-cert-card:nth-child(2),
+.reveal-section.revealed .karriere-benefit-card:nth-child(2),
+.reveal-section.revealed .karriere-job-card:nth-child(2),
+.reveal-section.revealed .karriere-step-card:nth-child(2),
+.reveal-section.revealed .faq-category-block:nth-child(2) { animation-delay: 0.12s; }
 
 .reveal-section.revealed .service-card:nth-child(3),
 .reveal-section.revealed .feature-card:nth-child(3),
@@ -509,7 +548,20 @@ button {
 .reveal-section.revealed .live-stat-card:nth-child(3),
 .reveal-section.revealed .cargo-info-card:nth-child(3),
 .reveal-section.revealed .cargo-how-step:nth-child(3),
-.reveal-section.revealed .cargo-type-card:nth-child(3) { animation-delay: 0.19s; }
+.reveal-section.revealed .cargo-type-card:nth-child(3),
+.reveal-section.revealed .flotte-stat-card:nth-child(3),
+.reveal-section.revealed .flotte-vehicle-card:nth-child(3),
+.reveal-section.revealed .flotte-tech-card:nth-child(3),
+.reveal-section.revealed .flotte-why-card:nth-child(3),
+.reveal-section.revealed .flotte-location-card:nth-child(3),
+.reveal-section.revealed .flotte-maint-card:nth-child(3),
+.reveal-section.revealed .nachh-stat-card:nth-child(3),
+.reveal-section.revealed .nachh-measure-card:nth-child(3),
+.reveal-section.revealed .nachh-cert-card:nth-child(3),
+.reveal-section.revealed .karriere-benefit-card:nth-child(3),
+.reveal-section.revealed .karriere-job-card:nth-child(3),
+.reveal-section.revealed .karriere-step-card:nth-child(3),
+.reveal-section.revealed .faq-category-block:nth-child(3) { animation-delay: 0.19s; }
 
 .reveal-section.revealed .service-card:nth-child(4),
 .reveal-section.revealed .feature-card:nth-child(4),
@@ -531,20 +583,44 @@ button {
 .reveal-section.revealed .live-stat-card:nth-child(4),
 .reveal-section.revealed .cargo-info-card:nth-child(4),
 .reveal-section.revealed .cargo-how-step:nth-child(4),
-.reveal-section.revealed .cargo-type-card:nth-child(4) { animation-delay: 0.26s; }
+.reveal-section.revealed .cargo-type-card:nth-child(4),
+.reveal-section.revealed .flotte-stat-card:nth-child(4),
+.reveal-section.revealed .flotte-vehicle-card:nth-child(4),
+.reveal-section.revealed .flotte-tech-card:nth-child(4),
+.reveal-section.revealed .flotte-why-card:nth-child(4),
+.reveal-section.revealed .flotte-location-card:nth-child(4),
+.reveal-section.revealed .nachh-stat-card:nth-child(4),
+.reveal-section.revealed .nachh-measure-card:nth-child(4),
+.reveal-section.revealed .karriere-benefit-card:nth-child(4),
+.reveal-section.revealed .karriere-job-card:nth-child(4),
+.reveal-section.revealed .faq-category-block:nth-child(4) { animation-delay: 0.26s; }
 
 .reveal-section.revealed .service-card:nth-child(5),
 .reveal-section.revealed .industry-card:nth-child(5),
 .reveal-section.revealed .sustain-card:nth-child(5),
 .reveal-section.revealed .biz-card:nth-child(5),
 .reveal-section.revealed .svc-quick-card:nth-child(5),
-.reveal-section.revealed .cargo-type-card:nth-child(5) { animation-delay: 0.33s; }
+.reveal-section.revealed .cargo-type-card:nth-child(5),
+.reveal-section.revealed .flotte-vehicle-card:nth-child(5),
+.reveal-section.revealed .flotte-tech-card:nth-child(5),
+.reveal-section.revealed .flotte-location-card:nth-child(5),
+.reveal-section.revealed .nachh-measure-card:nth-child(5),
+.reveal-section.revealed .karriere-benefit-card:nth-child(5),
+.reveal-section.revealed .karriere-job-card:nth-child(5),
+.reveal-section.revealed .faq-category-block:nth-child(5) { animation-delay: 0.33s; }
 
 .reveal-section.revealed .service-card:nth-child(6),
 .reveal-section.revealed .industry-card:nth-child(6),
 .reveal-section.revealed .biz-card:nth-child(6),
 .reveal-section.revealed .svc-quick-card:nth-child(6),
-.reveal-section.revealed .cargo-type-card:nth-child(6) { animation-delay: 0.40s; }
+.reveal-section.revealed .cargo-type-card:nth-child(6),
+.reveal-section.revealed .flotte-vehicle-card:nth-child(6),
+.reveal-section.revealed .flotte-tech-card:nth-child(6),
+.reveal-section.revealed .flotte-location-card:nth-child(6),
+.reveal-section.revealed .nachh-measure-card:nth-child(6),
+.reveal-section.revealed .karriere-benefit-card:nth-child(6),
+.reveal-section.revealed .karriere-job-card:nth-child(6),
+.reveal-section.revealed .faq-category-block:nth-child(6) { animation-delay: 0.40s; }
 
 /* ── borderGlow on card types ── */
 .cert-card,

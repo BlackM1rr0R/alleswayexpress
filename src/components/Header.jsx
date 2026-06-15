@@ -3,8 +3,8 @@ import logoImg from "../assets/logo_transparent.png";
 import "../styles/Header.css";
 
 const NAV_LABELS = {
-  de: { home: "Startseite", services: "Leistungen", cargo: "Sendungen", about: "Über uns", contact: "Kontakt", cta: "Angebot anfordern" },
-  en: { home: "Home", services: "Services", cargo: "Shipments", about: "About Us", contact: "Contact", cta: "Get a Quote" },
+  de: { home: "Startseite", services: "Leistungen", about: "Über uns", gallery: "Galerie", faq: "FAQ", karriere: "Karriere", nachhaltigkeit: "Nachhaltigkeit", flotte: "Flotte", contact: "Kontakt", cta: "Angebot anfordern" },
+  en: { home: "Home", services: "Services", about: "About Us", gallery: "Gallery", faq: "FAQ", karriere: "Careers", nachhaltigkeit: "Sustainability", flotte: "Fleet", contact: "Contact", cta: "Get a Quote" },
 };
 
 const LANGS = [
@@ -16,7 +16,9 @@ function Header({ currentPage, setPage, lang, setLang }) {
   const [scrolled, setScrolled]     = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen]     = useState(false);
+  const [moreOpen, setMoreOpen]     = useState(false);
   const langRef = useRef(null);
+  const moreRef = useRef(null);
 
   const t = NAV_LABELS[lang] || NAV_LABELS.de;
   const currentLang = LANGS.find((l) => l.code === lang) || LANGS[0];
@@ -30,6 +32,7 @@ function Header({ currentPage, setPage, lang, setLang }) {
   useEffect(() => {
     const handler = (e) => {
       if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
+      if (moreRef.current && !moreRef.current.contains(e.target)) setMoreOpen(false);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -54,10 +57,19 @@ function Header({ currentPage, setPage, lang, setLang }) {
   const navItems = [
     { id: "home",     label: t.home },
     { id: "services", label: t.services },
-    { id: "cargo",    label: t.cargo },
     { id: "about",    label: t.about },
+    { id: "gallery",  label: t.gallery },
     { id: "contact",  label: t.contact },
   ];
+
+  const moreItems = [
+    { id: "flotte",         label: t.flotte },
+    { id: "nachhaltigkeit", label: t.nachhaltigkeit },
+    { id: "karriere",       label: t.karriere },
+    { id: "faq",            label: t.faq },
+  ];
+
+  const moreActive = moreItems.some(m => m.id === currentPage);
 
   return (
     <>
@@ -83,6 +95,31 @@ function Header({ currentPage, setPage, lang, setLang }) {
                 {currentPage === item.id && <span className="nav-active-dot" />}
               </button>
             ))}
+            <div className="nav-more-wrap" ref={moreRef}>
+              <button
+                className={`nav-link nav-more-btn ${moreActive ? "active" : ""} ${moreOpen ? "open" : ""}`}
+                onClick={() => setMoreOpen(o => !o)}
+              >
+                {lang === "en" ? "More" : "Mehr"}
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ marginLeft: 4 }}>
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+                {moreActive && <span className="nav-active-dot" />}
+              </button>
+              {moreOpen && (
+                <div className="nav-more-dropdown">
+                  {moreItems.map(item => (
+                    <button
+                      key={item.id}
+                      className={`nav-more-option ${currentPage === item.id ? "active" : ""}`}
+                      onClick={() => { goTo(item.id); setMoreOpen(false); }}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </nav>
 
           <div className="header-right">
@@ -172,7 +209,7 @@ function Header({ currentPage, setPage, lang, setLang }) {
         <div className="mobile-divider" />
 
         <div className="mobile-nav-items">
-          {navItems.map((item, i) => (
+          {[...navItems, ...moreItems].map((item, i) => (
             <button
               key={item.id}
               className={`mobile-nav-link ${currentPage === item.id ? "active" : ""}`}

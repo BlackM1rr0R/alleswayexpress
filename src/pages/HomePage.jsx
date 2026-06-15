@@ -4,15 +4,11 @@ import T from "../i18n";
 import StatsBar from "../components/StatsBar";
 import bgHero from "../assets/kamyon.jpeg";
 import kamyon5 from "../assets/kamyon5.jpeg";
-import kamyon7 from "../assets/kamyon7.jpeg";
 import back4 from "../assets/back4.jpeg";
-import kamyon6 from "../assets/kamyon6.jpeg";
-import kamyon3 from "../assets/kamyon3.jpeg";
-import kamyon2 from "../assets/kamyon2.jpeg";
-import kamyon4 from "../assets/kamyon4.jpeg";
+import a1 from "../assets/a1.jpg";
 import kamyon9 from "../assets/kamyon9.jpeg";
 import kamyon1 from "../assets/kamyon1.jpeg";
-import foto1 from "../assets/kamyon5.jpeg";
+import foto1 from "../assets/anfrage.jpg";
 import foto2 from "../assets/aaaaaaaaaa1.jpg";
 import foto3 from "../assets/aaaaaaaaaa2.jpg";
 import lkw1 from "../assets/lkw1.jpeg";
@@ -21,23 +17,27 @@ import lkw3 from "../assets/lkw3.jpeg";
 import lkw4 from "../assets/lkw4.jpeg";
 import lkw5 from "../assets/lkw5.jpeg";
 import lkw6 from "../assets/lkw6.jpeg";
+import svcImg0 from "../assets/express.jpeg";
+import svcImg1 from "../assets/lkwtransport.jpeg";
+import svcImg2 from "../assets/sprinter.jpeg";
+import svcImg3 from "../assets/versich.jpeg";
+import svcImg4 from "../assets/deutschland.jpeg";
+import svcImg5 from "../assets/724.jpeg";
 import "../styles/HomePage.css";
 
 const PROCESS_PHOTOS = [foto1, foto2, foto3];
 
 const VEHICLES = [
-  { name: "Sprinter",  base: 50,  rate: 1.2,  img: lkw1, mode: "road" },
-  { name: "LKW 7,5t",  base: 50,  rate: 2.0,  img: lkw2, mode: "road" },
+  { name: "Sprinter",  base: 50,  rate: 1.2,  img: lkw2, mode: "road" },
+  { name: "LKW 7,5t",  base: 50,  rate: 2.0,  img: lkw1, mode: "road" },
   { name: "LKW 40t",   base: 100, rate: 2.4,  img: lkw3, mode: "road" },
-  { name: "Schiff",    base: 0,   rate: 140,   img: lkw4, mode: "sea",  unit: "m³" },
-  { name: "Flugzeug",  base: 0,   rate: 7,     img: lkw5, mode: "air",  unit: "kg" },
+  { name: "Schiff",    base: 0,   rate: 140,   img: lkw5, mode: "sea",  unit: "m³" },
+  { name: "Flugzeug",  base: 0,   rate: 7,     img: lkw4, mode: "air",  unit: "kg" },
   { name: "Zug",       base: 0,   rate: 0.50,  img: lkw6, mode: "train", unit: "kg" },
 ];
 
-const SVC_ICONS = [
-  <I.Zap s={26} />, <I.Truck s={26} />, <I.Package s={26} />,
-  <I.Shield s={26} />, <I.Globe s={26} />, <I.Clock s={26} />,
-];
+const SVC_IMGS = [svcImg0, svcImg1, svcImg2, svcImg3, svcImg4, svcImg5];
+
 const WHY_ICONS = [
   <I.Truck s={28} />, <I.Shield s={28} />, <I.Clock s={28} />, <I.Users s={28} />,
 ];
@@ -452,7 +452,9 @@ function HomePage({ setPage, lang = "de" }) {
           <div className="services-grid">
             {t.services.map((s, i) => (
               <div className="service-card" key={i}>
-                <div className="service-icon">{SVC_ICONS[i]}</div>
+                <div className="svc-card-img-wrap">
+                  <img src={SVC_IMGS[i]} alt={s.title} className="svc-card-img" />
+                </div>
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
                 <button className="service-link" onClick={() => { setPage("services"); window.scrollTo(0, 0); }}>
@@ -467,9 +469,9 @@ function HomePage({ setPage, lang = "de" }) {
       {/* ══════════════ WHY US ══════════════ */}
       <section className="section reveal-section why-parallax-section" ref={el => { refWhy.current = el; whyRef.current = el; }}>
         <div className="testi-parallax-bg why-parallax-bg" ref={whyBgRef} style={{ backgroundColor: "#060709" }}>
-          <div className="why-bg-side why-bg-side--left"  style={{ backgroundImage: `url(${kamyon3})` }} />
-          <div className="why-bg-center"                  style={{ backgroundImage: `url(${kamyon3})` }} />
-          <div className="why-bg-side why-bg-side--right" style={{ backgroundImage: `url(${kamyon3})` }} />
+          <div className="why-bg-side why-bg-side--left"  style={{ backgroundImage: `url(${a1})` }} />
+          <div className="why-bg-center"                  style={{ backgroundImage: `url(${a1})` }} />
+          <div className="why-bg-side why-bg-side--right" style={{ backgroundImage: `url(${a1})` }} />
         </div>
         <div className="section-bg-overlay" />
         <div className="section-inner">
@@ -528,8 +530,8 @@ function HomePage({ setPage, lang = "de" }) {
       {/* ══════════════ TESTIMONIALS ══════════════ */}
       <section className="section section-dark reveal-section testi-parallax-section" ref={el => { refCalc.current = el; testiRef.current = el; }}>
         <div className="testi-parallax-bg" ref={testiBgRef}>
-          <div className="why-bg-side testi-half testi-half--left"  style={{ backgroundImage: `url(${kamyon4})`, filter: "none", WebkitMaskImage: "linear-gradient(to right, black 0%, black 40%, transparent 100%)", maskImage: "linear-gradient(to right, black 0%, black 40%, transparent 100%)" }} />
-          <div className="why-bg-side testi-half testi-half--right" style={{ backgroundImage: `url(${kamyon3})`, filter: "none", WebkitMaskImage: "linear-gradient(to left, black 0%, black 40%, transparent 100%)", maskImage: "linear-gradient(to left, black 0%, black 40%, transparent 100%)" }} />
+          <div className="why-bg-side testi-half testi-half--left"  style={{ backgroundImage: `url(${kamyon5})`, filter: "none", backgroundPosition: "center", WebkitMaskImage: "linear-gradient(to right, black 0%, black 40%, transparent 100%)", maskImage: "linear-gradient(to right, black 0%, black 40%, transparent 100%)" }} />
+          <div className="why-bg-side testi-half testi-half--right" style={{ backgroundImage: `url(${kamyon5})`, filter: "none", backgroundPosition: "center", transform: "scaleX(-1)", WebkitMaskImage: "linear-gradient(to left, black 0%, black 40%, transparent 100%)", maskImage: "linear-gradient(to left, black 0%, black 40%, transparent 100%)" }} />
         </div>
         <div className="section-bg-overlay" />
         <div className="section-inner">
@@ -610,10 +612,12 @@ function HomePage({ setPage, lang = "de" }) {
             <p className="section-subtitle">{t.pricing_subtitle}</p>
           </div>
           <div className="pricing-grid">
-            {t.pricing_cards.map((card, i) => (
+            {[lkw2, lkw1, lkw3, lkw5, lkw4, lkw6].map((img, i) => { const card = t.pricing_cards[i]; return (
               <div className={`pricing-card${card.badge ? " pricing-card--popular" : ""}`} key={i}>
                 {card.badge && <div className="pricing-badge">{card.badge}</div>}
-                <div className="pricing-icon">{card.icon}</div>
+                <div className="pricing-img-wrap">
+                  <img src={img} alt={card.name} className="pricing-img" />
+                </div>
                 <h3 className="pricing-name">{card.name}</h3>
                 <div className="pricing-price">
                   <span className="pricing-from">{t.pricing_from}</span>
@@ -630,7 +634,7 @@ function HomePage({ setPage, lang = "de" }) {
                   {t.pricing_cta}
                 </button>
               </div>
-            ))}
+            ); })}
           </div>
         </div>
       </section>

@@ -1,0 +1,487 @@
+﻿/* в”Ђв”Ђ Flotte page background в”Ђв”Ђ */
+.flotte-page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.flotte-orb-1 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.18;
+  width: 460px; height: 460px;
+  background: #D4821A;
+  top: -130px; left: -130px;
+  animation: flotteOrb 11s ease-in-out infinite alternate;
+}
+.flotte-orb-2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.14;
+  width: 340px; height: 340px;
+  background: #7c3aed;
+  bottom: 6%; right: -90px;
+  animation: flotteOrb 14s ease-in-out infinite alternate;
+  animation-delay: -6s;
+}
+.flotte-orb-3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.12;
+  width: 280px; height: 280px;
+  background: #0ea5e9;
+  top: 40%; left: 42%;
+  animation: flotteOrb 9s ease-in-out infinite alternate;
+  animation-delay: -3s;
+}
+@keyframes flotteOrb {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(30px, 22px) scale(1.1); }
+}
+.flotte-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(212,130,26,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,130,26,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: flotteGridPan 18s linear infinite;
+}
+@keyframes flotteGridPan {
+  from { background-position: 0 0; }
+  to   { background-position: 48px 48px; }
+}
+.flotte-scan-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(212,130,26,0.3), transparent);
+  animation: flotteScan 6s linear infinite;
+}
+@keyframes flotteScan {
+  from { top: -2px; }
+  to   { top: 100%; }
+}
+
+/* в”Ђв”Ђ Shared layout в”Ђв”Ђ */
+.flotte-section {
+  position: relative;
+  z-index: 1;
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+.flotte-section .section-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* в”Ђв”Ђ Eyebrow / Hero в”Ђв”Ђ */
+.flotte-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #D4821A;
+  margin: 0 0 14px;
+}
+.flotte-hero-title {
+  font-family: var(--font-display, 'Oswald', sans-serif);
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin: 0 0 20px;
+}
+.flotte-hero-desc {
+  font-size: 17px;
+  color: rgba(255,255,255,0.70);
+  max-width: 680px;
+  line-height: 1.7;
+  margin: 0 0 48px;
+}
+
+/* в”Ђв”Ђ Stats в”Ђв”Ђ */
+.flotte-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) { .flotte-stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .flotte-stats-grid { grid-template-columns: 1fr; } }
+
+.flotte-stat-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,130,26,0.18);
+  border-radius: 14px;
+  padding: 28px 16px;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.flotte-stat-card:hover {
+  border-color: rgba(212,130,26,0.5);
+  transform: translateY(-4px);
+}
+.flotte-stat-num {
+  display: block;
+  font-family: var(--font-display, 'Oswald', sans-serif);
+  font-size: 44px;
+  font-weight: 800;
+  color: #D4821A;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.flotte-stat-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.58);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* в”Ђв”Ђ Section title в”Ђв”Ђ */
+.flotte-section-title {
+  font-family: var(--font-display, 'Oswald', sans-serif);
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 48px;
+  letter-spacing: -0.5px;
+}
+
+/* в”Ђв”Ђ Vehicle cards в”Ђв”Ђ */
+.flotte-vehicles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+@media (max-width: 880px) { .flotte-vehicles-grid { grid-template-columns: 1fr; } }
+
+.flotte-vehicle-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,130,26,0.16);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.flotte-vehicle-card:hover {
+  border-color: rgba(212,130,26,0.45);
+  transform: translateY(-5px);
+}
+.flotte-vehicle-img-wrap {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.flotte-vehicle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+.flotte-vehicle-card:hover .flotte-vehicle-img {
+  transform: scale(1.04);
+}
+.flotte-vehicle-coverage {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(0,0,0,0.7);
+  color: #D4821A;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid rgba(212,130,26,0.4);
+  border-radius: 100px;
+  padding: 4px 12px;
+}
+.flotte-vehicle-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+.flotte-vehicle-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.flotte-vehicle-icon {
+  font-size: 26px;
+}
+.flotte-vehicle-name {
+  font-family: var(--font-display, 'Oswald', sans-serif);
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  flex: 1;
+}
+.flotte-price-badge {
+  background: linear-gradient(135deg, #D4821A, #f59e0b);
+  color: #000;
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 100px;
+  padding: 4px 12px;
+  white-space: nowrap;
+}
+.flotte-capacity-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.flotte-cap-item {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+.flotte-cap-item strong {
+  color: rgba(255,255,255,0.85);
+}
+.flotte-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.flotte-features li {
+  font-size: 14px;
+  color: rgba(255,255,255,0.72);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.flotte-feat-dot {
+  color: #D4821A;
+  font-weight: 800;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.flotte-anfragen-btn {
+  margin-top: auto;
+  background: transparent;
+  color: #D4821A;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid rgba(212,130,26,0.45);
+  border-radius: 100px;
+  padding: 11px 24px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+  align-self: flex-start;
+}
+.flotte-anfragen-btn:hover {
+  background: #D4821A;
+  color: #000;
+}
+
+/* ── Technology ── */
+.flotte-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+@media (max-width: 900px) { .flotte-tech-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .flotte-tech-grid { grid-template-columns: 1fr; } }
+
+.flotte-tech-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,130,26,0.15);
+  border-radius: 16px;
+  padding: 28px 22px;
+  transition: border-color 0.3s, transform 0.3s, background 0.3s;
+}
+.flotte-tech-card:hover {
+  border-color: rgba(212,130,26,0.45);
+  background: rgba(212,130,26,0.05);
+  transform: translateY(-4px);
+}
+.flotte-tech-icon { display: block; font-size: 34px; margin-bottom: 14px; }
+.flotte-tech-title { font-size: 16px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+.flotte-tech-desc { font-size: 14px; color: rgba(255,255,255,0.60); line-height: 1.6; margin: 0; }
+
+/* ── Why Allesway ── */
+.flotte-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) { .flotte-why-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .flotte-why-grid { grid-template-columns: 1fr; } }
+
+.flotte-why-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,130,26,0.18);
+  border-radius: 16px;
+  padding: 32px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.flotte-why-card:hover { border-color: rgba(212,130,26,0.5); transform: translateY(-4px); }
+.flotte-why-num { font-family: var(--font-display,'Oswald',sans-serif); font-size: 46px; font-weight: 800; color: #D4821A; line-height: 1; }
+.flotte-why-label { font-size: 13px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
+.flotte-why-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.55; margin: 4px 0 0; }
+
+/* ── Locations ── */
+.flotte-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) { .flotte-locations-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .flotte-locations-grid { grid-template-columns: 1fr; } }
+
+.flotte-location-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,130,26,0.15);
+  border-radius: 14px;
+  padding: 22px 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.flotte-location-card:hover { border-color: rgba(212,130,26,0.45); transform: translateY(-3px); }
+.flotte-location-pin { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.flotte-location-city { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+.flotte-location-role { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #D4821A; margin-bottom: 6px; }
+.flotte-location-info { font-size: 13px; color: rgba(255,255,255,0.58); line-height: 1.5; }
+
+/* в”Ђв”Ђ Comparison table в”Ђв”Ђ */
+.flotte-table-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(212,130,26,0.18);
+}
+.flotte-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.flotte-table th {
+  background: rgba(212,130,26,0.12);
+  color: #D4821A;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 14px 16px;
+  text-align: left;
+  white-space: nowrap;
+}
+.flotte-table td {
+  padding: 13px 16px;
+  color: rgba(255,255,255,0.72);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.flotte-table tr:hover td {
+  background: rgba(212,130,26,0.05);
+  color: #fff;
+}
+.flotte-table td:first-child {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* в”Ђв”Ђ Maintenance в”Ђв”Ђ */
+.flotte-maint-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+@media (max-width: 760px) { .flotte-maint-grid { grid-template-columns: 1fr; } }
+
+.flotte-maint-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,130,26,0.16);
+  border-radius: 16px;
+  padding: 30px 22px;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.flotte-maint-card:hover {
+  border-color: rgba(212,130,26,0.42);
+  transform: translateY(-4px);
+}
+.flotte-maint-icon {
+  display: block;
+  font-size: 36px;
+  margin-bottom: 14px;
+}
+.flotte-maint-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 10px;
+}
+.flotte-maint-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.60);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* в”Ђв”Ђ CTA в”Ђв”Ђ */
+.flotte-cta-section {
+  text-align: center;
+}
+.flotte-cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.flotte-cta-title {
+  font-family: var(--font-display, 'Oswald', sans-serif);
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+.flotte-cta-desc {
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  max-width: 520px;
+  line-height: 1.65;
+  margin: 0;
+}
+.flotte-cta-btn {
+  background: linear-gradient(135deg, #D4821A, #f59e0b);
+  color: #000;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 100px;
+  padding: 14px 40px;
+  cursor: pointer;
+  transition: opacity 0.25s, transform 0.25s;
+  margin-top: 8px;
+}
+.flotte-cta-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+

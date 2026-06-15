@@ -25,6 +25,8 @@
 .why-parallax-section {
   position: relative;
   overflow: hidden;
+  padding: 100px 0 !important;
+  min-height: 600px;
 }
 .why-parallax-bg {
   display: flex !important;
@@ -35,9 +37,9 @@
 }
 .why-bg-center {
   flex: 0 0 80%;
-  height: 1550px;
-  background-size: 100%;
-  background-position: center;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
 }
 .why-bg-side {
   flex: 1;
@@ -773,6 +775,23 @@
   gap: 20px;
 }
 
+.svc-card-img-wrap {
+  width: calc(100% + 56px);
+  margin: -36px -28px 22px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+.svc-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.service-card:hover .svc-card-img {
+  transform: scale(1.05);
+}
 .service-card {
   background: rgba(4,5,8,0.78);
   border: 1px solid rgba(212,130,26,0.18);
@@ -1389,7 +1408,27 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
+@media (min-width: 1200px) {
+  .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+}
 
+.pricing-img-wrap {
+  width: calc(100% + 56px);
+  margin: -36px -28px 22px;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
+}
+.pricing-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.pricing-card:hover .pricing-img {
+  transform: scale(1.05);
+}
 .pricing-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1400,6 +1439,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  overflow: hidden;
 }
 .pricing-card:hover {
   border-color: rgba(212,130,26,0.25);
@@ -1860,6 +1900,8 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transform: scale(0.75);
+  transform-origin: center center;
   transition: transform 0.55s ease;
   display: block;
   position: relative;

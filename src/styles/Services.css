@@ -783,6 +783,22 @@
   gap: 20px;
 }
 
+.fsc-img-wrap {
+  width: calc(100% + 52px);
+  margin: -30px -26px 20px;
+  height: 170px;
+  overflow: hidden;
+}
+.fsc-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.fleet-spec-card:hover .fsc-img {
+  transform: scale(1.04);
+}
 .fleet-spec-card {
   background: rgba(255,255,255,0.025);
   border: 1px solid rgba(255,255,255,0.07);
@@ -802,17 +818,34 @@
 .fleet-spec-card--gold::before   { background: linear-gradient(90deg, var(--accent), transparent); }
 .fleet-spec-card--blue::before   { background: linear-gradient(90deg, #3b82f6, transparent); }
 .fleet-spec-card--green::before  { background: linear-gradient(90deg, #22c55e, transparent); }
+.fleet-spec-card--purple::before { background: linear-gradient(90deg, #a855f7, transparent); }
+.fleet-spec-card--teal::before   { background: linear-gradient(90deg, #14b8a6, transparent); }
+.fleet-spec-card--orange::before { background: linear-gradient(90deg, #f97316, transparent); }
 .fleet-spec-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 14px 40px rgba(0,0,0,0.3);
 }
-.fleet-spec-card--gold:hover  { border-color: rgba(212,130,26,0.22); }
-.fleet-spec-card--blue:hover  { border-color: rgba(59,130,246,0.22); }
-.fleet-spec-card--green:hover { border-color: rgba(34,197,94,0.22); }
+.fleet-spec-card--gold:hover   { border-color: rgba(212,130,26,0.22); }
+.fleet-spec-card--blue:hover   { border-color: rgba(59,130,246,0.22); }
+.fleet-spec-card--green:hover  { border-color: rgba(34,197,94,0.22); }
+.fleet-spec-card--purple:hover { border-color: rgba(168,85,247,0.22); }
+.fleet-spec-card--teal:hover   { border-color: rgba(20,184,166,0.22); }
+.fleet-spec-card--orange:hover { border-color: rgba(249,115,22,0.22); }
 
+.fsc-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(212,130,26,0.1);
+  border: 1px solid rgba(212,130,26,0.2);
+  border-radius: 8px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
 .fsc-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 14px;
   margin-bottom: 22px;
 }
@@ -854,9 +887,12 @@
   font-weight: 800;
   letter-spacing: -0.5px;
 }
-.fleet-spec-card--gold  .fsc-stat-val { color: var(--accent); }
-.fleet-spec-card--blue  .fsc-stat-val { color: #60a5fa; }
-.fleet-spec-card--green .fsc-stat-val { color: #4ade80; }
+.fleet-spec-card--gold   .fsc-stat-val { color: var(--accent); }
+.fleet-spec-card--blue   .fsc-stat-val { color: #60a5fa; }
+.fleet-spec-card--green  .fsc-stat-val { color: #4ade80; }
+.fleet-spec-card--purple .fsc-stat-val { color: #c084fc; }
+.fleet-spec-card--teal   .fsc-stat-val { color: #2dd4bf; }
+.fleet-spec-card--orange .fsc-stat-val { color: #fb923c; }
 .fsc-stat-label {
   font-size: 11px;
   color: rgba(255,255,255,0.3);

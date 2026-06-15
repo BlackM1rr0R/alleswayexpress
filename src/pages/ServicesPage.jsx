@@ -8,8 +8,16 @@ import kamyon3 from "../assets/kamyon3.jpeg";
 import kamyon6 from "../assets/kamyon6.jpeg";
 import kamyon4 from "../assets/kamyon4.jpeg";
 import kamyon9 from "../assets/kamyon9.jpeg";
-import kamyon1 from "../assets/kamyon1.jpeg";
+import lkw1 from "../assets/lkw1.jpeg";
+import lkw2 from "../assets/lkw2.jpeg";
+import lkw3 from "../assets/lkw3.jpeg";
+import lkw4 from "../assets/lkw4.jpeg";
+import lkw5 from "../assets/lkw5.jpeg";
+import lkw6 from "../assets/lkw6.jpeg";
+import firmenlosungen from "../assets/firmenlosungen.jpeg";
 import "../styles/Services.css";
+
+const FLEET_IMGS = [lkw2, lkw1, lkw3, lkw5, lkw4, lkw6];
 
 const STATIC = [
   { img: kamyon5, icon: <I.Zap s={22} />     },
@@ -17,7 +25,7 @@ const STATIC = [
   { img: kamyon6, icon: <I.Package s={22} /> },
   { img: kamyon4, icon: <I.Shield s={22} />  },
   { img: kamyon9, icon: <I.Globe s={22} />   },
-  { img: kamyon1, icon: <I.Users s={22} />   },
+  { img: firmenlosungen, icon: <I.Users s={22} />   },
 ];
 
 const QUICK_ICONS = [
@@ -150,12 +158,17 @@ function ServicesPage({ setPage, lang = "de" }) {
           <div className="fleet-specs-grid">
             {t.fleet_cards.map((fc, i) => (
               <div className={`fleet-spec-card fleet-spec-card--${fc.color}`} key={i}>
+                {FLEET_IMGS[i] && (
+                  <div className="fsc-img-wrap">
+                    <img src={FLEET_IMGS[i]} alt={fc.name} className="fsc-img" />
+                  </div>
+                )}
                 <div className="fsc-header">
-                  <span className="fsc-icon">{fc.icon}</span>
                   <div>
                     <div className="fsc-name">{fc.name}</div>
                     <div className="fsc-range">{fc.range}</div>
                   </div>
+                  {fc.price && <div className="fsc-price">{fc.price}</div>}
                 </div>
                 <div className="fsc-stats">
                   <div className="fsc-stat">

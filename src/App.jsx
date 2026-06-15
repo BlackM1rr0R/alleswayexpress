@@ -1,17 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import HomePage from "./pages/HomePage";
 import ServicesPage from "./pages/ServicesPage";
-import CargoPage from "./pages/CargoPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import GalleryPage from "./pages/GalleryPage";
+import NachhaltigkeitPage from "./pages/NachhaltigkeitPage";
+import FlottePage from "./pages/FlottePage";
+import FAQPage from "./pages/FAQPage";
+import KarrierePage from "./pages/KarrierePage";
 import "./styles/global.css";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("home");
+  const [currentPage, setCurrentPage] = useState(() => localStorage.getItem("allesway_page") || "home");
   const [lang, setLang] = useState(() => localStorage.getItem("allesway_lang") || "de");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    localStorage.setItem("allesway_page", currentPage);
+  }, [currentPage]);
 
   const handleSetLang = (code) => {
     setLang(code);
@@ -20,11 +29,15 @@ function App() {
 
   const renderPage = () => {
     switch (currentPage) {
-      case "services": return <ServicesPage setPage={setCurrentPage} lang={lang} />;
-      case "cargo":    return <CargoPage    setPage={setCurrentPage} lang={lang} />;
-      case "about":    return <AboutPage    setPage={setCurrentPage} lang={lang} />;
-      case "contact":  return <ContactPage  setPage={setCurrentPage} lang={lang} />;
-      default:         return <HomePage     setPage={setCurrentPage} lang={lang} />;
+      case "services":       return <ServicesPage       setPage={setCurrentPage} lang={lang} />;
+      case "about":          return <AboutPage          setPage={setCurrentPage} lang={lang} />;
+      case "contact":        return <ContactPage        setPage={setCurrentPage} lang={lang} />;
+      case "gallery":        return <GalleryPage        setPage={setCurrentPage} lang={lang} />;
+      case "nachhaltigkeit": return <NachhaltigkeitPage setPage={setCurrentPage} lang={lang} />;
+      case "flotte":         return <FlottePage         setPage={setCurrentPage} lang={lang} />;
+      case "faq":            return <FAQPage            setPage={setCurrentPage} lang={lang} />;
+      case "karriere":       return <KarrierePage       setPage={setCurrentPage} lang={lang} />;
+      default:               return <HomePage           setPage={setCurrentPage} lang={lang} />;
     }
   };
 

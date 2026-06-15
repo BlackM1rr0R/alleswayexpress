@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { useReveal } from "../utils/animations";
 import I from "../components/Icons";
 import T from "../i18n";
