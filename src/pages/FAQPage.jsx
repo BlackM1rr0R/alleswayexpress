@@ -19,7 +19,7 @@ const CONTENT = {
         id: "preise",
         label: "Preise & Angebote",
         questions: [
-          { q: "Wie berechnen sich die Transportkosten?", a: "Die Kosten richten sich nach Entfernung, Fahrzeugtyp und Gewicht. Sprinter ab 1,90 €/km, LKW 7,5t ab 2,80 €/km, Actros 40t ab 3,90 €/km. Für Seefracht berechnen wir ab 140 €/m³, Luftfracht ab 7,00 €/kg und Schienentransport ab 0,50 €/kg." },
+          { q: "Wie berechnen sich die Transportkosten?", a: "Die Kosten richten sich nach Entfernung, Fahrzeugtyp und Gewicht. Sprinter ab 1,90 €/km, LKW 7,5t ab 2,80 €/km, Actros 40t ab 11,00 €/km. Für Seefracht berechnen wir ab 140 €/m³, Luftfracht ab 7,00 €/kg und Schienentransport ab 0,50 €/kg." },
           { q: "Gibt es Mengenrabatte?", a: "Ja, ab 10 Sendungen pro Monat gewähren wir gestaffelte Rabatte von bis zu 20%. Für Firmenkunden mit Rahmenverträgen gelten individuelle Konditionen." },
           { q: "Wie schnell erhalte ich ein Angebot?", a: "In der Regel innerhalb von 2 Stunden. Bei komplexen Anfragen spätestens am nächsten Werktag." },
           { q: "Gibt es versteckte Kosten?", a: "Nein. Unsere Preise sind transparent und inkludieren Maut, Kraftstoff und Grundversicherung. Eventuelle Zusatzleistungen wie Hebebühne oder Expressaufschlag werden vorab kommuniziert." },
@@ -88,7 +88,7 @@ const CONTENT = {
         id: "prices",
         label: "Prices & Quotes",
         questions: [
-          { q: "How are transport costs calculated?", a: "Costs depend on distance, vehicle type and weight. Sprinter from €1.90/km, 7.5t truck from €2.80/km, Actros 40t from €3.90/km. Sea freight from €140/m³, air freight from €7.00/kg, rail transport from €0.50/kg." },
+          { q: "How are transport costs calculated?", a: "Costs depend on distance, vehicle type and weight. Sprinter from €1.90/km, 7.5t truck from €2.80/km, Actros 40t from €11.00/km. Sea freight from €140/m³, air freight from €7.00/kg, rail transport from €0.50/kg." },
           { q: "Are volume discounts available?", a: "Yes, from 10 shipments per month we offer tiered discounts of up to 20%. Corporate customers with framework contracts receive individual rates." },
           { q: "How quickly will I receive a quote?", a: "Usually within 2 hours. For complex requests, by the next business day at the latest." },
           { q: "Are there any hidden costs?", a: "No. Our prices are transparent and include tolls, fuel, and basic insurance. Any additional services such as tail lifts or express surcharges are communicated in advance." },
@@ -207,7 +207,6 @@ function FAQPage({ setPage, lang = "de" }) {
       </div>
       <Particles />
 
-      {/* ── Search & Filter ── */}
       <section className="faq-filter-section reveal-section" ref={refFilter}>
         <div className="faq-filter-inner">
           <div className="faq-search-wrap">
@@ -236,7 +235,6 @@ function FAQPage({ setPage, lang = "de" }) {
         </div>
       </section>
 
-      {/* ── FAQ Content ── */}
       <section className="faq-content-section reveal-section" ref={refContent}>
         <div className="faq-content-inner">
           {hasAnyResults ? (
@@ -259,7 +257,6 @@ function FAQPage({ setPage, lang = "de" }) {
         </div>
       </section>
 
-      {/* ── CTA ── */}
       <section className="faq-cta-section reveal-section" ref={refCta}>
         <div className="faq-cta-inner">
           <h2 className="faq-cta-title">{t.ctaTitle}</h2>
