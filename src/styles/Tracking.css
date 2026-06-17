@@ -71,6 +71,13 @@
   padding: 4px 14px; border-radius: 6px;
   letter-spacing: 2px;
 }
+.trk-17track-badge {
+  background: linear-gradient(135deg, #D4821A, #f59e0b);
+  color: #000;
+  font-size: 14px; font-weight: 900;
+  padding: 5px 14px; border-radius: 6px;
+  letter-spacing: 2px;
+}
 .trk-powered {
   font-size: 13px; color: rgba(255,255,255,0.45); letter-spacing: 0.5px;
 }
