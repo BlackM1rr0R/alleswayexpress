@@ -11,6 +11,7 @@ import NachhaltigkeitPage from "./pages/NachhaltigkeitPage";
 import FlottePage from "./pages/FlottePage";
 import FAQPage from "./pages/FAQPage";
 import KarrierePage from "./pages/KarrierePage";
+import TrackingPage from "./pages/TrackingPage";
 import "./styles/global.css";
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
       case "flotte":         return <FlottePage         setPage={setCurrentPage} lang={lang} />;
       case "faq":            return <FAQPage            setPage={setCurrentPage} lang={lang} />;
       case "karriere":       return <KarrierePage       setPage={setCurrentPage} lang={lang} />;
+      case "tracking":       return <TrackingPage       setPage={setCurrentPage} lang={lang} />;
       default:               return <HomePage           setPage={setCurrentPage} lang={lang} />;
     }
   };

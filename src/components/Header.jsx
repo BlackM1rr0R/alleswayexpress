@@ -3,8 +3,8 @@ import logoImg from "../assets/logo_transparent.png";
 import "../styles/Header.css";
 
 const NAV_LABELS = {
-  de: { home: "Startseite", services: "Leistungen", about: "Über uns", gallery: "Galerie", faq: "FAQ", karriere: "Karriere", nachhaltigkeit: "Nachhaltigkeit", flotte: "Flotte", contact: "Kontakt", cta: "Angebot anfordern" },
-  en: { home: "Home", services: "Services", about: "About Us", gallery: "Gallery", faq: "FAQ", karriere: "Careers", nachhaltigkeit: "Sustainability", flotte: "Fleet", contact: "Contact", cta: "Get a Quote" },
+  de: { home: "Startseite", services: "Leistungen", about: "Über uns", gallery: "Galerie", faq: "FAQ", karriere: "Karriere", nachhaltigkeit: "Nachhaltigkeit", flotte: "Flotte", contact: "Kontakt", tracking: "Sendungsverfolgung", cta: "Angebot anfordern" },
+  en: { home: "Home", services: "Services", about: "About Us", gallery: "Gallery", faq: "FAQ", karriere: "Careers", nachhaltigkeit: "Sustainability", flotte: "Fleet", contact: "Contact", tracking: "Track Shipment", cta: "Get a Quote" },
 };
 
 const LANGS = [
@@ -67,6 +67,7 @@ function Header({ currentPage, setPage, lang, setLang }) {
     { id: "nachhaltigkeit", label: t.nachhaltigkeit },
     { id: "karriere",       label: t.karriere },
     { id: "faq",            label: t.faq },
+    { id: "tracking",       label: t.tracking },
   ];
 
   const moreActive = moreItems.some(m => m.id === currentPage);
