@@ -166,7 +166,60 @@ const SEA_REGIONS = [
   { label: "Lateinamerika",        ratePerM3: 360 },
 ];
 
-function HomePage({ setPage, lang = "de" }) {
+function HomeTrackWidget({ setPage, setTrackQuery, lang }) {
+  const [num, setNum] = useState("");
+  const handleTrack = () => {
+    const q = num.trim();
+    if (!q) return;
+    setTrackQuery(q);
+    setPage("tracking");
+    window.scrollTo(0, 0);
+  };
+  const ph = lang === "en" ? "Enter tracking number…" : "Sendungsnummer eingeben…";
+  const btn = lang === "en" ? "Track" : "Verfolgen";
+  const title = lang === "en" ? "Track your shipment" : "Sendung verfolgen";
+  const sub   = lang === "en" ? "Enter your tracking number to see the current status in real time." : "Geben Sie Ihre Sendungsnummer ein, um den aktuellen Status in Echtzeit zu sehen.";
+  return (
+    <section className="home-track-section">
+      <div className="home-track-inner">
+        <div className="home-track-left">
+          <div className="home-track-badge">
+            <span className="home-track-badge-dot" />
+            17TRACK · 2.000+ {lang === "en" ? "Carriers" : "Spediteure"}
+          </div>
+          <h2 className="home-track-title">{title}</h2>
+          <p className="home-track-sub">{sub}</p>
+        </div>
+        <div className="home-track-form">
+          <div className="home-track-input-row">
+            <input
+              className="home-track-input"
+              type="text"
+              placeholder={ph}
+              value={num}
+              onChange={e => setNum(e.target.value)}
+              onKeyDown={e => e.key === "Enter" && handleTrack()}
+            />
+            <button className="home-track-btn" onClick={handleTrack}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              {btn}
+            </button>
+          </div>
+          <div className="home-track-carriers">
+            {["DHL","FedEx","UPS","DPD","GLS","TNT"].map(c => (
+              <span className="home-track-carrier" key={c}>{c}</span>
+            ))}
+            <span className="home-track-carrier home-track-carrier--more">+1994 {lang === "en" ? "more" : "weitere"}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HomePage({ setPage, lang = "de", setTrackQuery }) {
   const t = (T[lang] || T.de).home;
   const [calcVehicle, setCalcVehicle] = useState(0);
   const [calcKm, setCalcKm] = useState(150);
@@ -269,7 +322,7 @@ function HomePage({ setPage, lang = "de" }) {
               <button className="btn-primary" onClick={() => { setPage("contact"); window.scrollTo(0, 0); }}>
                 {t.btn_quote} <I.ArrowRight s={18} />
               </button>
-              <button className="btn-secondary" onClick={() => { setPage("cargo"); window.scrollTo(0, 0); }}>
+              <button className="btn-secondary" onClick={() => { setPage("tracking"); window.scrollTo(0, 0); }}>
                 <I.Search s={18} /> {t.btn_track}
               </button>
             </div>
@@ -408,6 +461,9 @@ function HomePage({ setPage, lang = "de" }) {
 
       {/* ══════════════ STATS ══════════════ */}
       <StatsBar lang={lang} />
+
+      {/* ══════════════ TRACKING WIDGET ══════════════ */}
+      <HomeTrackWidget setPage={setPage} setTrackQuery={setTrackQuery} lang={lang} />
 
       {/* ══════════════ HOW IT WORKS ══════════════ */}
       <section className="section process-section reveal-section" ref={refProcess}>
@@ -672,7 +728,7 @@ function HomePage({ setPage, lang = "de" }) {
             <button className="btn-primary" onClick={() => { setPage("contact"); window.scrollTo(0, 0); }}>
               <I.Phone s={18} /> {t.cta_btn1}
             </button>
-            <button className="btn-secondary" onClick={() => { setPage("cargo"); window.scrollTo(0, 0); }}>
+            <button className="btn-secondary" onClick={() => { setPage("tracking"); window.scrollTo(0, 0); }}>
               <I.Package s={18} /> {t.cta_btn2}
             </button>
           </div>

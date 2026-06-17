@@ -105,15 +105,22 @@ function formatDate(ts, lang) {
   }
 }
 
-export default function TrackingPage({ setPage, lang = "de" }) {
+export default function TrackingPage({ setPage, lang = "de", trackQuery = "", clearTrackQuery }) {
   const t = LABELS[lang] || LABELS.de;
-  const [query, setQuery]     = useState("");
+  const [query, setQuery]     = useState(trackQuery || "");
   const [loading, setLoading] = useState(false);
   const [result, setResult]   = useState(null);
   const [error, setError]     = useState("");
 
   const refForm   = useReveal();
   const refResult = useReveal();
+
+  /* auto-search if query came from home page widget */
+  useState(() => {
+    if (trackQuery) {
+      clearTrackQuery && clearTrackQuery();
+    }
+  });
 
   const track = async () => {
     const num = query.trim();

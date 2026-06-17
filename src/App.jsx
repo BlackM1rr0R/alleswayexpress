@@ -17,6 +17,7 @@ import "./styles/global.css";
 function App() {
   const [currentPage, setCurrentPage] = useState(() => localStorage.getItem("allesway_page") || "home");
   const [lang, setLang] = useState(() => localStorage.getItem("allesway_lang") || "de");
+  const [trackQuery, setTrackQuery] = useState("");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,8 +39,8 @@ function App() {
       case "flotte":         return <FlottePage         setPage={setCurrentPage} lang={lang} />;
       case "faq":            return <FAQPage            setPage={setCurrentPage} lang={lang} />;
       case "karriere":       return <KarrierePage       setPage={setCurrentPage} lang={lang} />;
-      case "tracking":       return <TrackingPage       setPage={setCurrentPage} lang={lang} />;
-      default:               return <HomePage           setPage={setCurrentPage} lang={lang} />;
+      case "tracking":       return <TrackingPage       setPage={setCurrentPage} lang={lang} trackQuery={trackQuery} clearTrackQuery={() => setTrackQuery("")} />;
+      default:               return <HomePage           setPage={setCurrentPage} lang={lang} setTrackQuery={setTrackQuery} />;
     }
   };
 

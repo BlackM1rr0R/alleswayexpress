@@ -60,6 +60,7 @@ function Header({ currentPage, setPage, lang, setLang }) {
     { id: "about",    label: t.about },
     { id: "gallery",  label: t.gallery },
     { id: "contact",  label: t.contact },
+    { id: "tracking", label: t.tracking, icon: true },
   ];
 
   const moreItems = [
@@ -67,7 +68,6 @@ function Header({ currentPage, setPage, lang, setLang }) {
     { id: "nachhaltigkeit", label: t.nachhaltigkeit },
     { id: "karriere",       label: t.karriere },
     { id: "faq",            label: t.faq },
-    { id: "tracking",       label: t.tracking },
   ];
 
   const moreActive = moreItems.some(m => m.id === currentPage);
@@ -87,14 +87,27 @@ function Header({ currentPage, setPage, lang, setLang }) {
 
           <nav className="nav-desktop">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                className={`nav-link ${currentPage === item.id ? "active" : ""}`}
-                onClick={() => goTo(item.id)}
-              >
-                {item.label}
-                {currentPage === item.id && <span className="nav-active-dot" />}
-              </button>
+              item.icon ? (
+                <button
+                  key={item.id}
+                  className={`nav-track-btn ${currentPage === item.id ? "active" : ""}`}
+                  onClick={() => goTo(item.id)}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                  </svg>
+                  {item.label}
+                </button>
+              ) : (
+                <button
+                  key={item.id}
+                  className={`nav-link ${currentPage === item.id ? "active" : ""}`}
+                  onClick={() => goTo(item.id)}
+                >
+                  {item.label}
+                  {currentPage === item.id && <span className="nav-active-dot" />}
+                </button>
+              )
             ))}
             <div className="nav-more-wrap" ref={moreRef}>
               <button
