@@ -123,7 +123,7 @@ export default function TrackingPage({ setPage, lang = "de", trackQuery = "", cl
 
       {/* ── Embedded 17track result ── */}
       {submitted && embedUrl && (
-        <section className="trk-section trk-embed-section reveal-section" ref={refResult}>
+        <section className="trk-section trk-embed-section">
           <div className="section-inner">
             <div className="trk-embed-hint">
               <span>📦</span> {t.embed_hint}
