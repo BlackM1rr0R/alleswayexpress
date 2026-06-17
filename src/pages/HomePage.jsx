@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import I from "../components/Icons";
 import T from "../i18n";
 import StatsBar from "../components/StatsBar";
