@@ -3,9 +3,12 @@ import { Particles, useReveal } from "../utils/animations";
 import PageHeader from "../components/PageHeader";
 import "../styles/Tracking.css";
 
+/* In development, calls corsproxy; in production, calls Netlify Function */
+const IS_DEV   = process.env.NODE_ENV === "development";
+const TRACK_ENDPOINT = IS_DEV
+  ? "https://corsproxy.io/?" + encodeURIComponent("https://api.17track.net/track/v2.2/gettrackinfo")
+  : "/.netlify/functions/track";
 const API_KEY  = process.env.REACT_APP_17TRACK_KEY || "";
-const PROXY    = "https://corsproxy.io/?";
-const API_URL  = "https://api.17track.net/track/v2.2/gettrackinfo";
 
 const STATUS_CODE_MAP = {
   0: "unknown", 10: "transit", 20: "expired",
@@ -83,9 +86,12 @@ export default function TrackingPage({ setPage, lang = "de", trackQuery = "", cl
     setLoading(true); setError(""); setResult(null);
 
     try {
-      const res = await fetch(`${PROXY}${encodeURIComponent(API_URL)}`, {
+      const headers = { "Content-Type": "application/json" };
+      if (IS_DEV) headers["17token"] = API_KEY;
+
+      const res = await fetch(TRACK_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "17token": API_KEY },
+        headers,
         body: JSON.stringify([{ number: num }]),
       });
 
